@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
 <meta charset="UTF-8">
@@ -500,74 +500,490 @@ body.editing .card .drag-handle,body.editing .side-card .drag-handle{display:fle
   .grid{grid-template-columns:1fr}
   .hero{padding:26px 22px}
 }
+
+/* ===== OPTIMIZED PRINT STYLES – FITS EXACTLY 2 A4 PAGES ===== */
 @media print{
-  @page{size:A4;margin:6mm}
-  body{background:#fff;font-size:10px;line-height:1.7;print-color-adjust:exact;-webkit-print-color-adjust:exact}
-  .toolbar,.item-ctl,.rem-btn,.card-ctl,.hint-bar,.footer-note,.radar-ctl,.radar-hint,.test-overlay{display:none !important}
-  .page{max-width:none;margin:0;box-shadow:none;border-radius:0}
-  .grid{grid-template-columns:60mm 1fr;gap:4mm}
-  .sidebar{background:var(--dark);print-color-adjust:exact;-webkit-print-color-adjust:exact}
-  .hero{padding:10px 16px 10px}
-  .avatar{width:60px;height:60px;flex-basis:60px;font-size:22px}
-  .hero-name{font-size:16px}
-  .hero-title{font-size:11px}
-  .badges{gap:4px;margin-top:8px}
-  .badge{font-size:8px;padding:1px 8px}
-  .contact-grid{margin-top:8px;gap:4px}
-  .contact-item{padding:3px 8px}
-  .contact-item .lbl{font-size:8px}
-  .contact-item .val{font-size:9px}
-  .sidebar{padding:8px 10px}
-  .main{padding:10px 12px}
-  .section-title{font-size:11px;margin-bottom:6px;gap:6px}
-  .section-title .ico{width:20px;height:20px;font-size:10px;border-radius:6px}
-  .side-card{padding:8px;margin-bottom:8px}
-  .card{padding:8px 10px;margin-bottom:8px;break-inside:avoid}
-  .side-card{break-inside:avoid}
-  .stats{gap:3px;margin-bottom:8px}
-  .stat{padding:5px 3px}
-  .stat .num{font-size:13px}
-  .stat .lbl{font-size:8px}
-  .g-label{font-size:9px}
-  .g-val{font-size:9px}
-  .skill-grid{gap:6px}
-  .gauge{margin-bottom:7px}
-  .bar{margin-bottom:6px}
-  .bar-head{font-size:9px}
-  .bar-track{height:5px}
-  .tag{font-size:8px;padding:1px 8px}
-  .cert-name{font-size:9px}
-  .cert-check{width:16px;height:16px;font-size:9px}
-  .cert-item{padding:4px 0}
-  .flow-step{padding:4px 8px}
-  .flow-step .n{width:20px;height:20px;font-size:10px}
-  .flow-step .t{font-size:9.5px}
-  .flow-arrow{font-size:9px;padding:1px 0}
-  .t-role{font-size:11px}
-  .t-org{font-size:9px}
-  .t-date{font-size:8.5px}
-  .t-desc{font-size:9px;margin-top:2px}
-  .t-tags{gap:3px;margin-top:4px}
-  .t-tag{font-size:8px;padding:1px 6px}
-  .t-item{margin-bottom:8px}
-  .timeline{padding-right:18px}
-  .t-item::before{right:-17px;width:10px;height:10px}
-  .edu-title{font-size:10px}
-  .edu-sub{font-size:9px}
-  .edu-date{font-size:8px}
-  .edu-ico{width:32px;height:32px;flex-basis:32px;font-size:14px;border-radius:8px}
-  .edu-item{gap:8px;margin-bottom:8px}
-  .about-text{font-size:9.5px}
-  table{font-size:9.5px}
-  th{font-size:9.5px;padding:5px 7px}
-  td{padding:5px 7px}
-  .proj-link{font-size:8.5px}
-  .card,.side-card,.timeline,.table-wrap{break-inside:avoid}
-  .pentagon-wrap svg{max-width:140px}
-  .p-bar{margin-bottom:4px}
-  .p-bar-head{font-size:8.5px}
-  .p-bar-track{height:4px}
-  .personality-summary{font-size:8.5px;padding:6px 8px}
+  /* A4 page configuration */
+  @page{
+    size:A4 portrait;
+    margin:4.5mm 5mm 4.5mm 5mm;
+  }
+
+  body{
+    background:#fff;
+    font-size:7.8px;
+    line-height:1.45;
+    print-color-adjust:exact;
+    -webkit-print-color-adjust:exact;
+  }
+
+  /* Hide interactive elements */
+  .toolbar,
+  .item-ctl,
+  .rem-btn,
+  .card-ctl,
+  .hint-bar,
+  .footer-note,
+  .radar-ctl,
+  .radar-hint,
+  .test-overlay,
+  .no-print,
+  .drag-handle{
+    display:none !important;
+  }
+
+  /* Main container */
+  .page{
+    max-width:100%;
+    margin:0;
+    box-shadow:none;
+    border-radius:0;
+    padding:0;
+    background:#fff;
+  }
+
+  /* Grid – slightly narrower sidebar for better balance */
+  .grid{
+    display:grid;
+    grid-template-columns:50mm 1fr;
+    gap:1.5mm;
+    padding:0;
+  }
+
+  /* Sidebar dark background */
+  .sidebar{
+    background:var(--dark) !important;
+    print-color-adjust:exact;
+    -webkit-print-color-adjust:exact;
+    padding:2px 4px 6px 4px !important;
+    border-radius:0;
+  }
+
+  .main{
+    padding:2px 6px 6px 4px !important;
+  }
+
+  /* ===== HERO – heavily compressed ===== */
+  .hero{
+    padding:3px 6px 4px 6px !important;
+    margin-bottom:1px;
+    border-radius:0;
+  }
+  .hero::before{display:none;}
+
+  .hero-inner{
+    gap:6px;
+    flex-wrap:nowrap;
+  }
+  .avatar{
+    width:28px;
+    height:28px;
+    flex:0 0 28px;
+    font-size:11px;
+    border-width:1.5px;
+    box-shadow:0 2px 6px rgba(79,70,229,.3);
+  }
+  .avatar::after{display:none!important;}
+  .hero-name{
+    font-size:12px;
+    font-weight:900;
+    letter-spacing:0.2px;
+    line-height:1.2;
+  }
+  .hero-title{
+    font-size:7.5px;
+    font-weight:600;
+    margin-top:0px;
+    line-height:1.2;
+  }
+  .badges{
+    gap:2px;
+    margin-top:2px;
+    flex-wrap:wrap;
+  }
+  .badge{
+    font-size:5.5px;
+    padding:0px 5px;
+    border-radius:99px;
+    border-width:1px;
+    line-height:1.3;
+  }
+
+  /* Contact grid – compact */
+  .contact-grid{
+    margin-top:3px;
+    gap:2px;
+    grid-template-columns:repeat(auto-fit,minmax(70px,1fr));
+  }
+  .contact-item{
+    padding:1px 4px;
+    border-radius:4px;
+    border-width:1px;
+  }
+  .contact-item .lbl{
+    font-size:5px;
+    font-weight:600;
+  }
+  .contact-item .val{
+    font-size:5.8px;
+    font-weight:600;
+    line-height:1.2;
+  }
+
+  /* ===== SECTIONS GENERAL ===== */
+  .section-title{
+    font-size:8.5px;
+    margin-bottom:3px;
+    gap:4px;
+    font-weight:800;
+  }
+  .section-title .ico{
+    width:14px;
+    height:14px;
+    flex:0 0 14px;
+    font-size:7px;
+    border-radius:3px;
+  }
+  .sidebar .section-title{color:#fff!important;}
+
+  .side-card{
+    padding:2px 4px !important;
+    margin-bottom:2px !important;
+    border-radius:4px;
+    border-width:1px;
+    break-inside:avoid;
+  }
+  .card{
+    padding:2px 4px !important;
+    margin-bottom:2px !important;
+    border-radius:4px;
+    border-width:1px;
+    break-inside:avoid;
+    box-shadow:none !important;
+  }
+
+  /* ===== STATS – compact ===== */
+  .stats{
+    gap:2px;
+    margin-bottom:3px;
+    grid-template-columns:repeat(4,1fr);
+  }
+  .stat{
+    padding:2px 1px;
+    border-radius:4px;
+    border-width:1px;
+  }
+  .stat .num{
+    font-size:10px;
+    font-weight:900;
+    line-height:1.2;
+  }
+  .stat .lbl{
+    font-size:5.5px;
+    font-weight:600;
+    overflow-wrap:break-word;
+    word-break:break-word;
+    line-height:1.2;
+  }
+
+  /* ===== GAUGES – scaled down ===== */
+  .skill-grid{
+    gap:1px 4px;
+    grid-template-columns:1fr 1fr;
+  }
+  .gauge{
+    margin-bottom:2px;
+  }
+  .g-head{
+    margin-bottom:0px;
+  }
+  .g-label{
+    font-size:6.5px;
+    font-weight:700;
+  }
+  .g-val{
+    font-size:6.5px;
+    font-weight:800;
+    min-width:20px;
+    padding:0 2px;
+    border-radius:4px;
+  }
+  .g-svg{
+    max-height:18px;
+  }
+  .g-txt{
+    font-size:6px;
+    font-weight:800;
+  }
+  .g-bg,.g-fg{
+    stroke-width:5;
+  }
+
+  /* ===== RADAR – scaled ===== */
+  .pentagon-wrap svg{
+    max-width:80px;
+    max-height:80px;
+  }
+  .pentagon-txt{
+    font-size:5.5px;
+    font-weight:700;
+  }
+  .personality-bars{
+    margin-top:2px;
+  }
+  .p-bar{
+    margin-bottom:1.5px;
+  }
+  .p-bar-head{
+    font-size:6px;
+    font-weight:700;
+    margin-bottom:0px;
+  }
+  .p-bar-track{
+    height:3px;
+  }
+  .personality-summary{
+    font-size:5.5px;
+    padding:2px 4px;
+    margin-top:2px;
+    border-radius:4px;
+    line-height:1.3;
+  }
+
+  /* ===== FLOW ===== */
+  .flow-step{
+    padding:1px 4px;
+    border-radius:4px;
+    gap:4px;
+    border-width:1px;
+  }
+  .flow-step .n{
+    width:14px;
+    height:14px;
+    flex:0 0 14px;
+    font-size:7px;
+    border-radius:3px;
+  }
+  .flow-step .t{
+    font-size:6.5px;
+    font-weight:700;
+  }
+  .flow-arrow{
+    font-size:6px;
+    padding:0px 0;
+    line-height:1;
+  }
+
+  /* ===== LANGUAGES ===== */
+  .bar{
+    margin-bottom:2px;
+  }
+  .bar-head{
+    font-size:6.5px;
+    font-weight:700;
+    margin-bottom:0px;
+  }
+  .bar-track{
+    height:3.5px;
+  }
+
+  /* ===== CERTS ===== */
+  .cert-item{
+    padding:1.5px 0;
+    gap:4px;
+    border-bottom-width:0.5px;
+  }
+  .cert-check{
+    width:12px;
+    height:12px;
+    flex:0 0 12px;
+    font-size:6px;
+  }
+  .cert-name{
+    font-size:6.5px;
+    font-weight:700;
+  }
+
+  /* ===== TOOLS ===== */
+  .tag{
+    font-size:6px;
+    padding:0px 4px;
+    border-radius:99px;
+    border-width:1px;
+    font-weight:700;
+  }
+  .tag-list{
+    gap:3px;
+  }
+
+  /* ===== ABOUT ===== */
+  .about-text{
+    font-size:7px;
+    color:#1e293b;
+    line-height:1.4;
+  }
+  .about-text b{color:var(--primary);}
+
+  /* ===== TIMELINE (Experience) ===== */
+  .timeline{
+    padding-right:12px;
+  }
+  .timeline::before{
+    right:3px;
+    width:1.5px;
+  }
+  .t-item{
+    margin-bottom:3px;
+  }
+  .t-item::before{
+    right:-11px;
+    width:6px;
+    height:6px;
+    border-width:1.5px;
+    top:4px;
+  }
+  .t-head{
+    gap:2px;
+  }
+  .t-role{
+    font-size:7.5px;
+    font-weight:800;
+    line-height:1.2;
+  }
+  .t-org{
+    font-size:6px;
+    font-weight:700;
+    line-height:1.2;
+  }
+  .t-date{
+    font-size:5.5px;
+    padding:0px 4px;
+    border-radius:99px;
+    border-width:1px;
+    font-weight:700;
+    line-height:1.3;
+  }
+  .t-desc{
+    font-size:6.2px;
+    margin-top:0.5px;
+    line-height:1.3;
+    color:#334155;
+  }
+  .t-tags{
+    gap:2px;
+    margin-top:1px;
+  }
+  .t-tag{
+    font-size:5px;
+    padding:0px 4px;
+    border-radius:99px;
+    font-weight:700;
+    line-height:1.3;
+  }
+
+  /* ===== PROJECTS TABLE ===== */
+  table{
+    font-size:6.2px;
+    border-collapse:collapse;
+  }
+  th{
+    font-size:6px;
+    padding:2px 4px;
+    font-weight:700;
+    border-radius:0;
+  }
+  th:first-child{border-radius:0;}
+  th:last-child{border-radius:0;}
+  td{
+    padding:2px 4px;
+    border-bottom-width:0.5px;
+    vertical-align:middle;
+    line-height:1.2;
+  }
+  .proj-name{
+    font-weight:800;
+    font-size:6.5px;
+  }
+  .proj-tech{
+    font-size:5.5px;
+    font-weight:700;
+  }
+  .proj-link{
+    font-size:5.5px;
+    font-weight:700;
+  }
+
+  /* ===== EDUCATION ===== */
+  .edu-item{
+    gap:4px;
+    margin-bottom:2.5px;
+  }
+  .edu-ico{
+    width:20px;
+    height:20px;
+    flex:0 0 20px;
+    font-size:10px;
+    border-radius:4px;
+    border-width:1px;
+  }
+  .edu-title{
+    font-size:7px;
+    font-weight:800;
+    line-height:1.2;
+  }
+  .edu-sub{
+    font-size:6px;
+    font-weight:600;
+    color:var(--muted);
+    line-height:1.2;
+  }
+  .edu-date{
+    font-size:5.5px;
+    font-weight:700;
+    line-height:1.2;
+  }
+
+  /* ===== LTR OVERRIDES ===== */
+  [dir="ltr"] .timeline{
+    padding-right:0;
+    padding-left:12px;
+  }
+  [dir="ltr"] .timeline::before{
+    right:auto;
+    left:3px;
+  }
+  [dir="ltr"] .t-item::before{
+    right:auto;
+    left:-11px;
+  }
+  [dir="ltr"] th{text-align:left;}
+  [dir="ltr"] .contact-item .val{text-align:left;}
+
+  /* Prevent orphaned content breaks */
+  .side-card,.card,.timeline,.table-wrap,.edu-item,.cert-item,.t-item{
+    break-inside:avoid;
+  }
+
+  /* Force sidebar and main to align to the top of the page */
+  .sidebar,.main{
+    break-inside:avoid;
+  }
+
+  /* Ensure the grid itself doesn't break awkwardly */
+  .grid{
+    break-inside:avoid;
+  }
+
+  /* Reduce shadow and extra decoration */
+  .page,.card,.side-card,.hero{
+    box-shadow:none !important;
+  }
+
+  /* Hide test overlay completely */
+  .test-overlay{display:none!important;}
+
+  /* Footer hidden, but keep attribution inside footer-note hidden too */
+  .footer-note{display:none!important;}
 }
 </style>
 </head>
@@ -1954,7 +2370,7 @@ function initAvatar(){
 function tryFetchProfileImage(inputEl){
   var val=(inputEl.textContent||'').trim();
   if(!val) return;
-  
+
   var ghMatch=val.match(/github\.com\/([^\/\s]+)/i);
   if(ghMatch){
     var username=ghMatch[1].replace(/^@/,'');
@@ -1973,7 +2389,7 @@ function tryFetchProfileImage(inputEl){
     img.src='https://avatars.githubusercontent.com/'+username+'?s=200';
     return;
   }
-  
+
   var liMatch=val.match(/linkedin\.com\/in\/([^\/\s]+)/i);
   if(liMatch){
     // لینکدین فعلاً غیرفعال است (چون URL اشتباه است)
