@@ -11,21 +11,19 @@
 
 ---
 
-## 🌍 زبان‌های پشتیبانی‌شده / Supported Languages
+## 🌍 Supported Languages
 
-| پرچم | زبان | توضیحات |
-|:----:|:-----|:---------|
-| <img src="https://flagcdn.com/ir.svg" width="28" height="18" alt="Iran"> | فارسی | زبان مادری |
-| <img src="https://flagcdn.com/gb.svg" width="28" height="18" alt="UK"> | English | زبان بین‌المللی |
-| <img src="https://flagcdn.com/ye.svg" width="28" height="18" alt="Yemen"> | العربية | زبان عربی |
-| <img src="https://flagcdn.com/ru.svg" width="28" height="18" alt="Russia"> | Русский | زبان روسی |
-| <img src="https://flagcdn.com/cn.svg" width="28" height="18" alt="China"> | 中文 | زبان چینی |
-| <img src="https://flagcdn.com/es.svg" width="28" height="18" alt="Spain"> | Español | زبان اسپانیایی |
-| <img src="https://flagcdn.com/de.svg" width="28" height="18" alt="Germany"> | Deutsch | زبان آلمانی |
-| <img src="https://flagcdn.com/in.svg" width="28" height="18" alt="India"> | हिन्दी | زبان هندی |
-
+| Flag | Language | Description |
+|:----:|:---------|:------------|
+| <img src="https://flagcdn.com/ir.svg" width="28" height="18" alt="Iran"> | Persian | Native language |
+| <img src="https://flagcdn.com/gb.svg" width="28" height="18" alt="UK"> | English | International language |
+| <img src="https://flagcdn.com/ye.svg" width="28" height="18" alt="Yemen"> | Arabic | Arabic language |
+| <img src="https://flagcdn.com/ru.svg" width="28" height="18" alt="Russia"> | Russian | Russian language |
+| <img src="https://flagcdn.com/cn.svg" width="28" height="18" alt="China"> | Chinese | Chinese language |
+| <img src="https://flagcdn.com/es.svg" width="28" height="18" alt="Spain"> | Spanish | Spanish language |
+| <img src="https://flagcdn.com/de.svg" width="28" height="18" alt="Germany"> | German | German language |
+| <img src="https://flagcdn.com/in.svg" width="28" height="18" alt="India"> | Hindi | Hindi language |
 ---
-
 <!-- ======================== فارسی ======================== -->
 <details>
 <summary><b>🇮🇷 فارسی — رزومه‌ساز تعاملی و چندزبانه</b></summary>
