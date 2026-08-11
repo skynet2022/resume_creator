@@ -390,6 +390,12 @@ tr:nth-child(even) td{background:#f8fafc}
 [dir="ltr"] th{text-align:left}
 [dir="ltr"] .contact-item .val{text-align:left}
 
+/* Drag & Drop */
+.card[draggable=true],.side-card[draggable=true]{cursor:grab}
+.card[draggable=true]:active,.side-card[draggable=true]:active{cursor:grabbing}
+.card[draggable=true]:hover,.side-card[draggable=true]:hover{box-shadow:0 4px 20px rgba(79,70,229,.15)}
+.side-card[draggable=true]:hover{border-color:rgba(6,182,212,.4)}
+
 @media(max-width:860px){
   .grid{grid-template-columns:1fr}
   .hero{padding:26px 22px}
@@ -530,13 +536,13 @@ tr:nth-child(even) td{background:#f8fafc}
       </div>
       <div class="item-ctl no-print"><button data-action="add-stat" data-i18n="addStat">+ افزودن آمار</button></div>
 
-      <div class="side-card">
+      <div class="side-card" data-id="skills">
         <div class="section-title"><span class="ico">م</span><span contenteditable="true" data-editable data-i18n="secSkills">مهارت‌های فنی</span></div>
         <div class="item-ctl no-print"><button data-action="add-gauge" data-i18n="addSkill">+ افزودن مهارت</button></div>
         <div class="skill-grid" id="skills"></div>
       </div>
 
-      <div class="side-card">
+      <div class="side-card" data-id="radar">
         <div class="section-title"><span class="ico">ش</span><span id="radarTitle"></span></div>
         <div class="radar-ctl" id="radarCtl"></div>
         <div class="radar-hint" id="radarHint"></div>
@@ -545,7 +551,7 @@ tr:nth-child(even) td{background:#f8fafc}
         <div class="personality-summary" id="personalitySummary"></div>
       </div>
 
-      <div class="side-card">
+      <div class="side-card" data-id="systems">
         <div class="section-title"><span class="ico">س</span><span contenteditable="true" data-editable data-i18n="secSystems">تفکر سیستمی</span></div>
         <div class="item-ctl no-print"><button data-action="add-flow" data-i18n="addFlow">+ افزودن گام</button></div>
         <div class="flow" id="flow">
@@ -561,7 +567,7 @@ tr:nth-child(even) td{background:#f8fafc}
         </div>
       </div>
 
-      <div class="side-card">
+      <div class="side-card" data-id="languages">
         <div class="section-title"><span class="ico">ز</span><span contenteditable="true" data-editable data-i18n="secLanguages">زبان‌ها</span></div>
         <div class="item-ctl no-print"><button data-action="add-lang" data-i18n="addLang">+ افزودن زبان</button></div>
         <div id="langs">
@@ -578,7 +584,7 @@ tr:nth-child(even) td{background:#f8fafc}
         </div>
       </div>
 
-      <div class="side-card">
+      <div class="side-card" data-id="certs">
         <div class="section-title"><span class="ico">ع</span><span contenteditable="true" data-editable data-i18n="secCerts">گواهینامه‌ها</span></div>
         <div class="item-ctl no-print"><button data-action="add-cert" data-i18n="addCert">+ افزودن گواهی</button></div>
         <div id="certs">
@@ -600,7 +606,7 @@ tr:nth-child(even) td{background:#f8fafc}
         </div>
       </div>
 
-      <div class="side-card">
+      <div class="side-card" data-id="tools">
         <div class="section-title"><span class="ico">ا</span><span contenteditable="true" data-editable data-i18n="secTools">ابزارها</span></div>
         <div class="item-ctl no-print"><button data-action="add-tag" data-i18n="addTool">+ افزودن ابزار</button></div>
         <div class="tag-list" id="tools">
@@ -623,7 +629,7 @@ tr:nth-child(even) td{background:#f8fafc}
 
     <main class="main">
 
-      <div class="card">
+      <div class="card" data-id="about">
         <div class="section-title"><span class="ico">د</span><span contenteditable="true" data-editable data-i18n="secAbout">درباره من</span></div>
         <div class="about-text" contenteditable="true" data-editable data-i18n="aboutText">
           توسعه‌دهنده <b>وب و برنامه‌های کاربردی</b> با بیش از ۴ سال تجربه در طراحی سایت، توسعه نرم‌افزار و پیاده‌سازی سامانه‌های کاربردی.
@@ -636,7 +642,7 @@ tr:nth-child(even) td{background:#f8fafc}
         </div>
       </div>
 
-      <div class="card">
+      <div class="card" data-id="experience">
         <div class="section-title"><span class="ico">ک</span><span contenteditable="true" data-editable data-i18n="secExperience">سوابق شغلی</span></div>
         <div class="item-ctl no-print"><button data-action="add-exp" data-i18n="addExp">+ افزودن تجربه</button></div>
         <div class="timeline" id="timeline">
@@ -706,7 +712,7 @@ tr:nth-child(even) td{background:#f8fafc}
         </div>
       </div>
 
-      <div class="card">
+      <div class="card" data-id="projects">
         <div class="section-title"><span class="ico">پ</span><span contenteditable="true" data-editable data-i18n="secProjects">پروژه‌های شاخص</span></div>
         <div class="item-ctl no-print"><button data-action="add-proj" data-i18n="addProj">+ افزودن پروژه</button></div>
         <div class="table-wrap" style="overflow-x:auto">
@@ -753,7 +759,7 @@ tr:nth-child(even) td{background:#f8fafc}
         </div>
       </div>
 
-      <div class="card">
+      <div class="card" data-id="education">
         <div class="section-title"><span class="ico">ت</span><span contenteditable="true" data-editable data-i18n="secEducation">تحصیلات</span></div>
         <div class="item-ctl no-print"><button data-action="add-edu" data-i18n="addEdu">+ افزودن تحصیلات</button></div>
         <div id="edus">
@@ -2102,7 +2108,9 @@ function syncGauges(){document.querySelectorAll('#skills .gauge').forEach(g=>set
 
 function resetAll(){
   if(!confirm(t('resetConfirm')))return;
-  clearSaved();location.reload();
+  clearSaved();
+  try{localStorage.removeItem('resume_order')}catch(e){}
+  location.reload();
 }
 
 /* ===== Event Listeners ===== */
@@ -2110,6 +2118,7 @@ document.getElementById('btnEdit').addEventListener('click',function(){
   editing=!editing;
   document.body.classList.toggle('editing',editing);
   this.textContent=editing?t('tb.done'):t('tb.edit');
+  refreshDraggableState();
 });
 
 document.getElementById('langSel').addEventListener('change',function(){
@@ -2147,11 +2156,134 @@ document.addEventListener('click',function(e){
     if(act==='add-gauge'){container=document.getElementById('skills');clone=buildGauge('New',50,'');}
     if(act==='add-stat'){container=document.getElementById('stats');clone=container.querySelector('.stat').cloneNode(true);}
     if(act==='add-flow'){container=document.getElementById('flow');clone=container.querySelector('.flow-step').cloneNode(true);}
-    if(clone){clone.querySelectorAll('[contenteditable]').forEach(c=>{c.textContent=c.textContent});container.appendChild(clone);
+    if(clone){clone.querySelectorAll('[contenteditable]').forEach(c=>{c.textContent=c.textContent});
+    if(!clone.dataset.id)clone.dataset.id='item-'+Date.now();
+    if(clone.classList.contains('card')||clone.classList.contains('side-card')){makeDraggable(clone);}
+    container.appendChild(clone);
     if(act==='add-lang'){const w=clamp(parseInt(toEn(clone.querySelector('.bv').textContent))||0,0,100);clone.querySelector('.bar-fill').style.width=w+'%';}
-    if(act==='add-gauge')setGauge(clone,50);save();}
+    if(act==='add-gauge')setGauge(clone,50);save();saveOrder();}
   }
 });
+
+/* ===== Drag & Drop (only in edit mode) ===== */
+let dragItem=null;
+let dragType=null;
+
+function setDraggableState(enable){
+  document.querySelectorAll('.card,.side-card').forEach(el=>{
+    el.setAttribute('draggable',enable);
+    el.style.cursor=enable?'grab':'default';
+  });
+}
+
+function initDragAndDrop(){
+  document.querySelectorAll('.main,.sidebar').forEach(el=>{
+    el.addEventListener('dragover',onDragOver);
+    el.addEventListener('drop',onDrop);
+  });
+  document.querySelectorAll('.card,.side-card').forEach(el=>{
+    el.addEventListener('dragstart',onDragStart);
+    el.addEventListener('dragend',onDragEnd);
+  });
+  setDraggableState(false);
+}
+
+function onDragStart(e){
+  if(!document.body.classList.contains('editing')){e.preventDefault();return false;}
+  dragItem=this;
+  dragType=this.classList.contains('card')?'card':'side-card';
+  e.dataTransfer.setData('text/plain',this.dataset.id||'');
+  e.dataTransfer.effectAllowed='move';
+  this.style.opacity='0.5';
+  this.style.transition='opacity 0.2s';
+}
+
+function onDragEnd(e){
+  this.style.opacity='1';
+  dragItem=null;
+  dragType=null;
+}
+
+function onDragOver(e){
+  if(!document.body.classList.contains('editing')){e.preventDefault();return;}
+  e.preventDefault();
+  e.dataTransfer.dropEffect='move';
+}
+
+function onDrop(e){
+  if(!document.body.classList.contains('editing')){e.preventDefault();return;}
+  e.preventDefault();
+  const container=this;
+  const draggedId=e.dataTransfer.getData('text/plain');
+  const draggedElement=draggedId?document.querySelector('[data-id="'+draggedId+'"]'):(dragItem||null);
+  if(!draggedElement||draggedElement===container)return;
+  const isCardContainer=container.classList.contains('main');
+  const isSideContainer=container.classList.contains('sidebar');
+  if((isCardContainer&&dragType!=='card')||(isSideContainer&&dragType!=='side-card'))return;
+  const dropTarget=e.target.closest('.card,.side-card');
+  if(dropTarget&&dropTarget!==draggedElement){
+    const rect=dropTarget.getBoundingClientRect();
+    const midY=rect.top+rect.height/2;
+    if(e.clientY<midY){container.insertBefore(draggedElement,dropTarget);}
+    else{container.insertBefore(draggedElement,dropTarget.nextSibling);}
+  }else{container.appendChild(draggedElement);}
+  saveOrder();
+}
+
+function saveOrder(){
+  const mainCards=document.querySelectorAll('.main .card');
+  const sidebarCards=document.querySelectorAll('.sidebar .side-card');
+  const order={
+    main:Array.from(mainCards).map(el=>el.dataset.id),
+    sidebar:Array.from(sidebarCards).map(el=>el.dataset.id)
+  };
+  try{localStorage.setItem('resume_order',JSON.stringify(order))}catch(e){}
+}
+
+function loadOrder(){
+  const saved=localStorage.getItem('resume_order');
+  if(!saved)return;
+  try{
+    const order=JSON.parse(saved);
+    const mainContainer=document.querySelector('.main');
+    const sidebarContainer=document.querySelector('.sidebar');
+    if(order.main&&order.main.length&&mainContainer){
+      const mainCards=Array.from(mainContainer.querySelectorAll('.card'));
+      mainCards.sort((a,b)=>{
+        const idxA=order.main.indexOf(a.dataset.id);
+        const idxB=order.main.indexOf(b.dataset.id);
+        return (idxA===-1?order.main.length:idxA)-(idxB===-1?order.main.length:idxB);
+      });
+      mainCards.forEach(card=>mainContainer.appendChild(card));
+    }
+    if(order.sidebar&&order.sidebar.length&&sidebarContainer){
+      const sidebarCards=Array.from(sidebarContainer.querySelectorAll('.side-card'));
+      sidebarCards.sort((a,b)=>{
+        const idxA=order.sidebar.indexOf(a.dataset.id);
+        const idxB=order.sidebar.indexOf(b.dataset.id);
+        return (idxA===-1?order.sidebar.length:idxA)-(idxB===-1?order.sidebar.length:idxB);
+      });
+      sidebarCards.forEach(card=>sidebarContainer.appendChild(card));
+    }
+  }catch(e){}
+}
+
+function makeDraggable(el){
+  if(!el)return;
+  const isEditing=document.body.classList.contains('editing');
+  el.setAttribute('draggable',isEditing);
+  el.style.cursor=isEditing?'grab':'default';
+  el.addEventListener('dragstart',onDragStart);
+  el.addEventListener('dragend',onDragEnd);
+}
+
+function refreshDraggableState(){
+  const isEditing=document.body.classList.contains('editing');
+  document.querySelectorAll('.card,.side-card').forEach(el=>{
+    el.setAttribute('draggable',isEditing);
+    el.style.cursor=isEditing?'grab':'default';
+  });
+}
 
 /* ===== Init ===== */
 initSkills(document.getElementById('skills'));
@@ -2161,6 +2293,9 @@ applyLang();
 initAvatar();
 initGaugeDrag();
 initRadarDrag();
+initDragAndDrop();
+loadOrder();
+refreshDraggableState();
 </script>
 </body>
 </html>
