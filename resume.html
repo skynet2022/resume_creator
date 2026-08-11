@@ -2239,6 +2239,15 @@ function setDraggableState(enable){
     el.setAttribute('draggable',enable);
     el.style.cursor=enable?'grab':'default';
   });
+  // Ensure interactive children are NOT draggable
+  if(enable){
+    document.querySelectorAll('.card *,.side-card *').forEach(el=>{
+      if(!el.hasAttribute('draggable'))return;
+      if(el.tagName!=='DIV'||!el.classList.contains('card')&&!el.classList.contains('side-card')){
+        el.setAttribute('draggable','false');
+      }
+    });
+  }
 }
 
 function initDragAndDrop(){
@@ -2256,6 +2265,13 @@ function initDragAndDrop(){
 
 function onDragStart(e){
   if(!document.body.classList.contains('editing')){e.preventDefault();return false;}
+  // Don't start card drag if user is interacting with a child element
+  // (radar dots, gauges, bars, contenteditable, buttons, inputs, etc.)
+  const interactiveSelectors='.pentagon-dot,.gauge,.bar-fill,.bar-track,.g-svg,.g-val,.item-ctl button,.radar-ctl button,.card-ctl button,.rem-btn,[contenteditable],input,select,textarea,a,.flow-step,.stat,.tag,.cert-item,.edu-item,.t-item';
+  if(e.target.closest(interactiveSelectors)){
+    e.preventDefault();
+    return false;
+  }
   dragItem=this;
   dragType=this.classList.contains('card')?'card':'side-card';
   e.dataTransfer.setData('text/plain',this.dataset.id||'');
@@ -2416,6 +2432,14 @@ function refreshDraggableState(){
     el.setAttribute('draggable',isEditing);
     el.style.cursor=isEditing?'grab':'default';
   });
+  if(isEditing){
+    document.querySelectorAll('.card *,.side-card *').forEach(el=>{
+      const tag=el.tagName;
+      // Only top-level card/side-card divs should be draggable
+      if(el.classList.contains('card')||el.classList.contains('side-card'))return;
+      el.setAttribute('draggable','false');
+    });
+  }
 }
 
 /* ===== Init ===== */
