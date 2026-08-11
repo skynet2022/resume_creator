@@ -1,5 +1,6 @@
 <div dir="rtl" align="center">
 
+# 🚀 Interactive Multi-Language Resume Builder
 # 🚀 رزومه‌ساز تعاملی و چندزبانه 
 
 [![GitHub repo size](https://img.shields.io/github/repo-size/skynet2022/resume_creator?style=flat-square&color=4f46e5)](https://github.com/skynet2022/resume_creator)
@@ -23,7 +24,9 @@
 | <img src="https://flagcdn.com/es.svg" width="28" height="18" alt="Spain"> | Spanish | Spanish language |
 | <img src="https://flagcdn.com/de.svg" width="28" height="18" alt="Germany"> | German | German language |
 | <img src="https://flagcdn.com/in.svg" width="28" height="18" alt="India"> | Hindi | Hindi language |
+
 ---
+
 <!-- ======================== فارسی ======================== -->
 <details>
 <summary><b>🇮🇷 فارسی — رزومه‌ساز تعاملی و چندزبانه</b></summary>
@@ -37,8 +40,11 @@
 - **ویرایش مستقیم**: با فعال‌سازی حالت ویرایش، روی هر متن کلیک کنید و آن را تغییر دهید.
 - **ذخیره‌سازی خودکار**: تمام تغییرات در `localStorage` مرورگر ذخیره می‌شود.
 - **خروجی PDF استاندارد**: با دکمه‌ی چاپ، یک خروجی A4 با کیفیت بالا دریافت کنید.
-- **چندزبانه (i18n)**: پشتیبانی از ۸ زبان زنده‌ی دنیا.
+- **چندزبانه (i18n)**: پشتیبانی از ۸ زبان زنده‌ی دنیا (فارسی، انگلیسی، عربی، روسی، چینی، اسپانیایی، آلمانی، هندی).
 - **ارزیابی شخصیت**: شامل آزمون خودارزیابی و نمودار **هشت‌ضلعی (Radar Chart)**.
+- **جابجایی کادرها (Drag & Drop)**: در حالت ویرایش، می‌توانید هر کادر را با کشیدن به جایگاه دلخواه منتقل کنید.
+- **دریافت خودکار عکس پروفایل**: با وارد کردن لینک گیت‌هاب، عکس پروفایل شما به‌صورت خودکار بارگذاری می‌شود.
+- **خروجی چاپ بهینه**: رزومه دقیقاً در **دو صفحه A4** با فشرده‌سازی هوشمند چاپ می‌شود.
 - **فونت وزیر (Vazirmatn)**: فونت زیبا و خوانا با پشتیبانی کامل از خط فارسی.
 - **طراحی واکنش‌گرا**: نمایش بهینه در موبایل، تبلت و دسکتاپ.
 
@@ -46,13 +52,14 @@
 > **نسخه‌ی دمو:** [https://skynet2022.github.io/resume_creator](https://skynet2022.github.io/resume_creator)
 
 ### 🛠️ نحوه‌ی استفاده
-۱. فایل `resume_creator.html` را در مرورگر باز کنید.  
+۱. فایل `index.html` را در مرورگر باز کنید (یا نسخه‌ی آنلاین را مشاهده کنید).  
 ۲. روی دکمه‌ی **«حالت ویرایش»** کلیک کنید و متن‌ها را تغییر دهید.  
 ۳. از منوی کشویی برای تغییر زبان استفاده کنید.  
-۴. برای خروجی PDF، دکمه‌ی **«چاپ»** را بزنید و گزینه‌ی **«Save as PDF»** را انتخاب کنید (تیک **Background graphics** را فعال کنید).
+۴. در حالت ویرایش، کادرها را با کشیدن جابجا کنید.  
+۵. برای خروجی PDF، دکمه‌ی **«چاپ»** را بزنید و گزینه‌ی **«Save as PDF»** را انتخاب کنید (تیک **Background graphics** را فعال کنید).
 
 ### 🧩 فناوری‌ها
-HTML5 · CSS3 · JavaScript (Vanilla) · Font Vazirmatn · LocalStorage · Print API
+HTML5 · CSS3 · JavaScript (Vanilla) · Font Vazirmatn · LocalStorage · Print API · Drag & Drop API
 
 ### 📜 مجوز
 این پروژه تحت مجوز **MIT** منتشر شده است.
@@ -74,8 +81,11 @@ Click on any section to **edit it live**, and with one click, export a **high-qu
 - **Direct Editing**: Enable edit mode and click any text to modify it instantly.
 - **Auto-Save**: All changes are stored in the browser's `localStorage`.
 - **PDF Export**: Print-ready A4 output with full styling.
-- **Multi-Language (i18n)**: Supports 8 major world languages.
+- **Multi-Language (i18n)**: Supports 8 major world languages (Persian, English, Arabic, Russian, Chinese, Spanish, German, Hindi).
 - **Personality Assessment**: Includes a 24-question self-assessment and an **8-axis Radar Chart**.
+- **Drag & Drop**: In edit mode, drag any card to rearrange the layout.
+- **Auto Avatar Fetch**: Enter your GitHub link and your profile picture loads automatically.
+- **Optimized Print**: The resume fits perfectly into **two A4 pages** with smart compression.
 - **Vazirmatn Font**: Beautiful, readable font with full Persian/Arabic support.
 - **Responsive Design**: Optimized for mobile, tablet, and desktop.
 
@@ -83,13 +93,14 @@ Click on any section to **edit it live**, and with one click, export a **high-qu
 > **Live Demo:** [https://skynet2022.github.io/resume_creator](https://skynet2022.github.io/resume_creator)
 
 ### 🛠️ How to Use
-1. Open `resume_creator.html` in your browser.  
+1. Open `index.html` in your browser (or view the live demo).  
 2. Click **“Edit Mode”** and modify any text.  
 3. Use the dropdown to switch languages.  
-4. For PDF, click **“Print”** and choose **“Save as PDF”** (enable **Background graphics**).
+4. In edit mode, drag cards to rearrange them.  
+5. For PDF, click **“Print”** and choose **“Save as PDF”** (enable **Background graphics**).
 
 ### 🧩 Tech Stack
-HTML5 · CSS3 · Vanilla JavaScript · Vazirmatn Font · LocalStorage · Print API
+HTML5 · CSS3 · Vanilla JavaScript · Vazirmatn Font · LocalStorage · Print API · Drag & Drop API
 
 ### 📜 License
 This project is released under the **MIT** license.
@@ -111,8 +122,11 @@ This project is released under the **MIT** license.
 - **تحرير مباشر**: فعّل وضع التحرير وانقر على أي نص لتعديله.
 - **حفظ تلقائي**: تُحفظ جميع التغييرات في `localStorage` المتصفح.
 - **تصدير PDF**: إخراج جاهز للطباعة بصيغة A4.
-- **متعدد اللغات (i18n)**: يدعم 8 لغات عالمية.
+- **متعدد اللغات (i18n)**: يدعم 8 لغات عالمية (الفارسية، الإنجليزية، العربية، الروسية، الصينية، الإسبانية، الألمانية، الهندية).
 - **تقييم الشخصية**: اختبار ذاتي من 24 سؤالاً ومخطط **رادار ثماني المحاور**.
+- **السحب والإفلات**: في وضع التحرير، اسحب أي بطاقة لإعادة ترتيب التخطيط.
+- **جلب الصورة تلقائياً**: أدخل رابط GitHub الخاص بك لتحميل الصورة الشخصية تلقائياً.
+- **طباعة محسّنة**: تتناسب السيرة الذاتية تماماً مع **صفحتين A4** مع ضغط ذكي.
 - **خط وزير (Vazirmatn)**: خط جميل ومقروء يدعم العربية والفارسية.
 - **تصميم متجاوب**: مثالي للهواتف والأجهزة اللوحية والحواسيب.
 
@@ -120,13 +134,14 @@ This project is released under the **MIT** license.
 > **العرض الحي:** [https://skynet2022.github.io/resume_creator](https://skynet2022.github.io/resume_creator)
 
 ### 🛠️ طريقة الاستخدام
-1. افتح `resume_creator.html` في المتصفح.  
+1. افتح `index.html` في المتصفح (أو شاهد النسخة الحية).  
 2. اضغط **“وضع التحرير”** وعدّل النصوص.  
 3. استخدم القائمة المنسدلة لتغيير اللغة.  
-4. للطباعة، اضغط **“طباعة”** واختر **“Save as PDF”** (فعّل **Background graphics**).
+4. في وضع التحرير، اسحب البطاقات لإعادة ترتيبها.  
+5. للطباعة، اضغط **“طباعة”** واختر **“Save as PDF”** (فعّل **Background graphics**).
 
 ### 🧩 التقنيات
-HTML5 · CSS3 · JavaScript الخالص · خط Vazirmatn · LocalStorage · Print API
+HTML5 · CSS3 · JavaScript الخالص · خط Vazirmatn · LocalStorage · Print API · Drag & Drop API
 
 ### 📜 الرخصة
 هذا المشروع مرخص بموجب **MIT**.
@@ -148,8 +163,11 @@ HTML5 · CSS3 · JavaScript الخالص · خط Vazirmatn · LocalStorage · Pr
 - **Прямое редактирование**: включите режим редактирования и изменяйте любой текст.
 - **Автосохранение**: все изменения сохраняются в `localStorage` браузера.
 - **Экспорт в PDF**: готовый к печати A4 с полным оформлением.
-- **Многоязычность (i18n)**: поддержка 8 основных языков мира.
+- **Многоязычность (i18n)**: поддержка 8 основных языков мира (персидский, английский, арабский, русский, китайский, испанский, немецкий, хинди).
 - **Оценка личности**: включает самооценку из 24 вопросов и **8-осевую радиолокационную диаграмму**.
+- **Drag & Drop**: в режиме редактирования перетаскивайте карточки для изменения порядка.
+- **Автозагрузка аватара**: введите ссылку на GitHub, и фото профиля загрузится автоматически.
+- **Оптимизированная печать**: резюме помещается ровно на **две страницы A4** с умным сжатием.
 - **Шрифт Vazirmatn**: красивый шрифт с полной поддержкой персидской и арабской письменности.
 - **Адаптивный дизайн**: оптимизирован для мобильных устройств, планшетов и ПК.
 
@@ -157,13 +175,14 @@ HTML5 · CSS3 · JavaScript الخالص · خط Vazirmatn · LocalStorage · Pr
 > **Живая демонстрация:** [https://skynet2022.github.io/resume_creator](https://skynet2022.github.io/resume_creator)
 
 ### 🛠️ Как использовать
-1. Откройте `resume_creator.html` в браузере.  
+1. Откройте `index.html` в браузере (или посмотрите живую демонстрацию).  
 2. Нажмите **«Режим редактирования»** и измените текст.  
 3. Используйте выпадающее меню для смены языка.  
-4. Для PDF нажмите **«Печать»** и выберите **«Save as PDF»** (включите **Background graphics**).
+4. В режиме редактирования перетаскивайте карточки для изменения порядка.  
+5. Для PDF нажмите **«Печать»** и выберите **«Save as PDF»** (включите **Background graphics**).
 
 ### 🧩 Технологии
-HTML5 · CSS3 · Чистый JavaScript · Шрифт Vazirmatn · LocalStorage · Print API
+HTML5 · CSS3 · Чистый JavaScript · Шрифт Vazirmatn · LocalStorage · Print API · Drag & Drop API
 
 ### 📜 Лицензия
 Этот проект распространяется под лицензией **MIT**.
@@ -185,8 +204,11 @@ HTML5 · CSS3 · Чистый JavaScript · Шрифт Vazirmatn · LocalStorage
 - **直接编辑**：启用编辑模式，点击任何文本即可修改。
 - **自动保存**：所有更改存储在浏览器的 `localStorage` 中。
 - **PDF 导出**：可直接打印的 A4 输出，保留完整样式。
-- **多语言 (i18n)**：支持 8 种主要世界语言。
+- **多语言 (i18n)**：支持 8 种主要世界语言（波斯语、英语、阿拉伯语、俄语、中文、西班牙语、德语、印地语）。
 - **性格评估**：包含 24 题自我评估和 **8 轴雷达图**。
+- **拖放功能**：在编辑模式下，拖拽任何卡片重新排列布局。
+- **自动获取头像**：输入 GitHub 链接即可自动加载个人头像。
+- **优化的打印**：简历精确适配 **两页 A4**，带智能压缩。
 - **Vazirmatn 字体**：美观易读，完全支持波斯/阿拉伯文字。
 - **响应式设计**：针对手机、平板和桌面端优化。
 
@@ -194,13 +216,14 @@ HTML5 · CSS3 · Чистый JavaScript · Шрифт Vazirmatn · LocalStorage
 > **在线演示：** [https://skynet2022.github.io/resume_creator](https://skynet2022.github.io/resume_creator)
 
 ### 🛠️ 使用方法
-1. 在浏览器中打开 `resume_creator.html`。  
+1. 在浏览器中打开 `index.html`（或查看在线演示）。  
 2. 点击 **“编辑模式”** 并修改任何文本。  
 3. 使用下拉菜单切换语言。  
-4. 如需 PDF，点击 **“打印”** 并选择 **“Save as PDF”**（启用 **Background graphics**）。
+4. 在编辑模式下，拖拽卡片重新排列。  
+5. 如需 PDF，点击 **“打印”** 并选择 **“Save as PDF”**（启用 **Background graphics**）。
 
 ### 🧩 技术栈
-HTML5 · CSS3 · 原生 JavaScript · Vazirmatn 字体 · LocalStorage · Print API
+HTML5 · CSS3 · 原生 JavaScript · Vazirmatn 字体 · LocalStorage · Print API · Drag & Drop API
 
 ### 📜 许可证
 本项目基于 **MIT** 许可证发布。
@@ -222,8 +245,11 @@ Haz clic en cualquier sección para **editarla en vivo** y, con un clic, obtén 
 - **Edición directa**: activa el modo de edición y haz clic en cualquier texto para modificarlo.
 - **Guardado automático**: todos los cambios se guardan en el `localStorage` del navegador.
 - **Exportación a PDF**: salida lista para imprimir en formato A4.
-- **Multilingüe (i18n)**: soporta 8 idiomas principales.
+- **Multilingüe (i18n)**: soporta 8 idiomas principales (persa, inglés, árabe, ruso, chino, español, alemán, hindi).
 - **Evaluación de personalidad**: incluye autoevaluación de 24 preguntas y un **gráfico radial de 8 ejes**.
+- **Arrastrar y soltar**: en modo edición, arrastra cualquier tarjeta para reordenar el diseño.
+- **Obtención automática de avatar**: introduce tu enlace de GitHub y la foto de perfil se carga automáticamente.
+- **Impresión optimizada**: el currículum cabe exactamente en **dos páginas A4** con compresión inteligente.
 - **Fuente Vazirmatn**: tipografía hermosa y legible con soporte completo para escritura persa/árabe.
 - **Diseño responsivo**: optimizado para móviles, tabletas y ordenadores.
 
@@ -231,13 +257,14 @@ Haz clic en cualquier sección para **editarla en vivo** y, con un clic, obtén 
 > **Demo en vivo:** [https://skynet2022.github.io/resume_creator](https://skynet2022.github.io/resume_creator)
 
 ### 🛠️ Cómo usar
-1. Abre `resume_creator.html` en tu navegador.  
+1. Abre `index.html` en tu navegador (o la demo en vivo).  
 2. Haz clic en **“Modo edición”** y modifica cualquier texto.  
 3. Usa el menú desplegable para cambiar el idioma.  
-4. Para PDF, haz clic en **“Imprimir”** y elige **“Save as PDF”** (activa **Background graphics**).
+4. En modo edición, arrastra tarjetas para reordenarlas.  
+5. Para PDF, haz clic en **“Imprimir”** y elige **“Save as PDF”** (activa **Background graphics**).
 
 ### 🧩 Tecnologías
-HTML5 · CSS3 · JavaScript Vanilla · Fuente Vazirmatn · LocalStorage · Print API
+HTML5 · CSS3 · JavaScript Vanilla · Fuente Vazirmatn · LocalStorage · Print API · Drag & Drop API
 
 ### 📜 Licencia
 Este proyecto se publica bajo la licencia **MIT**.
@@ -259,8 +286,11 @@ Klicken Sie auf einen beliebigen Abschnitt, um ihn **live zu bearbeiten**, und m
 - **Direkte Bearbeitung**: Aktivieren Sie den Bearbeitungsmodus und klicken Sie auf beliebigen Text, um ihn zu ändern.
 - **Automatisches Speichern**: Alle Änderungen werden im `localStorage` des Browsers gespeichert.
 - **PDF-Export**: Druckfertiges A4-Format mit vollständigem Styling.
-- **Mehrsprachigkeit (i18n)**: Unterstützt 8 wichtige Weltsprachen.
+- **Mehrsprachigkeit (i18n)**: Unterstützt 8 wichtige Weltsprachen (Persisch, Englisch, Arabisch, Russisch, Chinesisch, Spanisch, Deutsch, Hindi).
 - **Persönlichkeitsbewertung**: Enthält 24 Fragen zur Selbsteinschätzung und ein **8-achsiges Radardiagramm**.
+- **Drag & Drop**: Im Bearbeitungsmodus können Sie Karten per Drag & Drop neu anordnen.
+- **Automatischer Avatar-Abruf**: Geben Sie Ihren GitHub-Link ein, und Ihr Profilbild wird automatisch geladen.
+- **Optimierter Druck**: Der Lebenslauf passt genau auf **zwei A4-Seiten** mit intelligenter Komprimierung.
 - **Vazirmatn-Schriftart**: Schöne, lesbare Schriftart mit vollständiger Unterstützung für persische/arabische Schrift.
 - **Responsives Design**: Optimiert für Mobilgeräte, Tablets und Desktops.
 
@@ -268,13 +298,14 @@ Klicken Sie auf einen beliebigen Abschnitt, um ihn **live zu bearbeiten**, und m
 > **Live-Demo:** [https://skynet2022.github.io/resume_creator](https://skynet2022.github.io/resume_creator)
 
 ### 🛠️ Verwendung
-1. Öffnen Sie `resume_creator.html` in Ihrem Browser.  
+1. Öffnen Sie `index.html` in Ihrem Browser (oder die Live-Demo).  
 2. Klicken Sie auf **„Bearbeitungsmodus“** und ändern Sie beliebige Texte.  
 3. Verwenden Sie das Dropdown-Menü, um die Sprache zu wechseln.  
-4. Für PDF klicken Sie auf **„Drucken“** und wählen **„Save as PDF“** (aktivieren Sie **Background graphics**).
+4. Im Bearbeitungsmodus ziehen Sie Karten per Drag & Drop, um sie neu anzuordnen.  
+5. Für PDF klicken Sie auf **„Drucken“** und wählen **„Save as PDF“** (aktivieren Sie **Background graphics**).
 
 ### 🧩 Technologien
-HTML5 · CSS3 · Vanilla JavaScript · Vazirmatn-Schriftart · LocalStorage · Print API
+HTML5 · CSS3 · Vanilla JavaScript · Vazirmatn-Schriftart · LocalStorage · Print API · Drag & Drop API
 
 ### 📜 Lizenz
 Dieses Projekt wird unter der **MIT**-Lizenz veröffentlicht.
@@ -296,8 +327,11 @@ Dieses Projekt wird unter der **MIT**-Lizenz veröffentlicht.
 - **प्रत्यक्ष संपादन**: एडिट मोड सक्रिय करें और किसी भी टेक्स्ट पर क्लिक करके उसे बदलें।
 - **स्वतः सहेजें**: सभी परिवर्तन ब्राउज़र के `localStorage` में सहेजे जाते हैं।
 - **PDF निर्यात**: पूर्ण स्टाइल के साथ प्रिंट-रेडी A4 आउटपुट।
-- **बहुभाषी (i18n)**: 8 प्रमुख विश्व भाषाओं का समर्थन।
+- **बहुभाषी (i18n)**: 8 प्रमुख विश्व भाषाओं का समर्थन (फ़ारसी, अंग्रेज़ी, अरबी, रूसी, चीनी, स्पेनिश, जर्मन, हिन्दी)।
 - **व्यक्तित्व मूल्यांकन**: 24 प्रश्नों का स्व-मूल्यांकन और **8-अक्षीय रडार चार्ट** शामिल है।
+- **Drag & Drop**: एडिट मोड में, किसी भी कार्ड को खींचकर लेआउट पुनर्व्यवस्थित करें।
+- **स्वचालित अवतार प्राप्ति**: अपना GitHub लिंक डालें और प्रोफ़ाइल फ़ोटो स्वचालित रूप से लोड हो जाती है।
+- **अनुकूलित प्रिंट**: रिज्यूमे **दो A4 पेजों** पर बिल्कुल फिट बैठता है, स्मार्ट कम्प्रेशन के साथ।
 - **Vazirmatn फ़ॉन्ट**: सुंदर और सुपाठ्य फ़ॉन्ट, फ़ारसी/अरबी लिपि के लिए पूर्ण समर्थन।
 - **उत्तरदायी डिज़ाइन**: मोबाइल, टैबलेट और डेस्कटॉप के लिए अनुकूलित।
 
@@ -305,13 +339,14 @@ Dieses Projekt wird unter der **MIT**-Lizenz veröffentlicht.
 > **लाइव डेमो:** [https://skynet2022.github.io/resume_creator](https://skynet2022.github.io/resume_creator)
 
 ### 🛠️ उपयोग कैसे करें
-1. ब्राउज़र में `resume_creator.html` खोलें।  
+1. ब्राउज़र में `index.html` खोलें (या लाइव डेमो देखें)।  
 2. **“एडिट मोड”** पर क्लिक करें और कोई भी टेक्स्ट बदलें।  
 3. भाषा बदलने के लिए ड्रॉपडाउन मेनू का उपयोग करें।  
-4. PDF के लिए, **“प्रिंट”** पर क्लिक करें और **“Save as PDF”** चुनें (**Background graphics** सक्षम करें)।
+4. एडिट मोड में, कार्ड को खींचकर पुनर्व्यवस्थित करें।  
+5. PDF के लिए, **“प्रिंट”** पर क्लिक करें और **“Save as PDF”** चुनें (**Background graphics** सक्षम करें)।
 
 ### 🧩 तकनीकी स्टैक
-HTML5 · CSS3 · शुद्ध JavaScript · Vazirmatn फ़ॉन्ट · LocalStorage · Print API
+HTML5 · CSS3 · शुद्ध JavaScript · Vazirmatn फ़ॉन्ट · LocalStorage · Print API · Drag & Drop API
 
 ### 📜 लाइसेंस
 यह प्रोजेक्ट **MIT** लाइसेंस के तहत जारी किया गया है।
@@ -344,7 +379,7 @@ If you have ideas for improvements, bug fixes, or new languages, we'd love your 
 
 <div dir="rtl">
 
-**اگر از این پروژه خوشتون اومد، بهش ستاره (Star) بدید **
+**اگر از این پروژه خوشتون اومد، بهش ستاره (Star) بدید **  
 ستاره‌هاتون به من انرژی مثبت ‌میده تا پروژه رو بهبود بدم و قابلیت‌های جدید اضافه کنم. 🙏
 
 </div>
