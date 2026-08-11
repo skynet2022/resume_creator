@@ -1951,6 +1951,47 @@ function initAvatar(){
   });
 }
 
+<<<<<<< HEAD
+=======
+function tryFetchProfileImage(inputEl){
+  var val=(inputEl.textContent||'').trim();
+  if(!val) return;
+  
+  var ghMatch=val.match(/github\.com\/([^\/\s]+)/i);
+  if(ghMatch){
+    var username=ghMatch[1].replace(/^@/,'');
+    var img=new Image();
+    img.crossOrigin='anonymous';
+    img.onload=function(){
+      var av=document.getElementById('avatar');
+      var avImg=document.getElementById('avatarImg');
+      avImg.src=img.src;
+      av.classList.add('has-img');
+      try{localStorage.setItem('avatarImg',img.src)}catch(e){}
+    };
+    img.onerror=function(){};
+    img.src='https://avatars.githubusercontent.com/'+username+'?s=200';
+    return;
+  }
+  
+  var liMatch=val.match(/linkedin\.com\/in\/([^\/\s]+)/i);
+  if(liMatch){
+    var liUser=liMatch[1];
+    var img2=new Image();
+    img2.crossOrigin='anonymous';
+    img2.onload=function(){
+      var av=document.getElementById('avatar');
+      var avImg=document.getElementById('avatarImg');
+      avImg.src=img2.src;
+      av.classList.add('has-img');
+      try{localStorage.setItem('avatarImg',img2.src)}catch(e){}
+    };
+    img2.onerror=function(){};
+    img2.src='https://media.licdn.com/dms/image/'+liUser+'/profile-displayphoto-shrink_200_200/';
+    return;
+  }
+}
+>>>>>>> 6b014de87e18b6b5761b4065f61f9846184c4b6e
 
 function initProfileAutoFetch(){
   var contactVals=document.querySelectorAll('#contacts .contact-item .val');
