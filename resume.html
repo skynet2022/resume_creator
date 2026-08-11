@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
 <meta charset="UTF-8">
@@ -396,69 +396,105 @@ tr:nth-child(even) td{background:#f8fafc}
 .card[draggable=true]:hover,.side-card[draggable=true]:hover{box-shadow:0 4px 20px rgba(79,70,229,.15)}
 .side-card[draggable=true]:hover{border-color:rgba(6,182,212,.4)}
 
+/* Drag handle bar */
+.drag-handle{
+  display:none;align-items:center;justify-content:center;gap:6px;
+  padding:5px 0;margin:-8px -16px 10px;
+  background:rgba(79,70,229,.1);border-radius:8px;
+  cursor:grab;font-size:10px;font-weight:700;color:var(--primary);
+  user-select:none;-webkit-user-select:none;transition:.15s;
+}
+body.editing .card .drag-handle,body.editing .side-card .drag-handle{display:flex}
+.drag-handle:hover{background:rgba(79,70,229,.2)}
+.drag-handle:active{cursor:grabbing}
+.drag-handle .grip{display:inline-block;width:16px;text-align:center;letter-spacing:1px;opacity:.5;font-size:13px}
+.sidebar .drag-handle{background:rgba(6,182,212,.12);color:#67e8f9}
+.sidebar .drag-handle:hover{background:rgba(6,182,212,.22)}
+
 /* Drag ghost outline */
 .card.dragging,.side-card.dragging{
-  outline:2px dashed var(--primary);
-  outline-offset:4px;
-  opacity:.45;
-  background:rgba(79,70,229,.04);
+  outline:2px dashed var(--primary);outline-offset:4px;
+  opacity:.45;background:rgba(79,70,229,.04);
 }
 /* Drop separator line */
 .drop-separator{
-  height:3px;
-  background:linear-gradient(90deg,var(--primary),var(--accent));
-  border-radius:99px;
-  margin:6px 0;
+  height:3px;background:linear-gradient(90deg,var(--primary),var(--accent));
+  border-radius:99px;margin:6px 0;
   box-shadow:0 0 8px rgba(79,70,229,.4);
   animation:pulseSep .4s ease-in-out infinite alternate;
 }
 @keyframes pulseSep{from{opacity:.6;transform:scaleX(.95)}to{opacity:1;transform:scaleX(1)}}
-/* Column highlight when dragging */
+/* Column highlight */
 .main.drag-over,.sidebar.drag-over{
-  outline:2px dashed rgba(79,70,229,.35);
-  outline-offset:-4px;
+  outline:2px dashed rgba(79,70,229,.35);outline-offset:-4px;
   background:rgba(79,70,229,.02);
 }
 .main.drag-over{border-radius:0 0 14px 14px}
 .sidebar.drag-over{border-radius:14px 0 0 14px}
-/* When a side-card moves to main, give it light styling */
+
+/* ===== side-card moved to main (light bg) ===== */
 .main .side-card{
-  background:#fff;border:1px solid var(--line);color:var(--ink);
-  box-shadow:0 2px 10px rgba(15,23,42,.05);
+  background:#fff !important;border:1px solid var(--line) !important;color:var(--ink) !important;
+  box-shadow:0 2px 10px rgba(15,23,42,.05) !important;
 }
-.main .side-card .section-title{color:var(--dark)}
-.main .side-card .g-label,.main .side-card .bar-head span{color:var(--dark)}
-.main .side-card .bar-track{background:#e2e8f0}
-.main .side-card .g-bg{stroke:#e2e8f0}
-.main .side-card .stat{background:rgba(79,70,229,.06);border-color:var(--line)}
-.main .side-card .stat .num{color:var(--primary)}
-.main .side-card .stat .lbl{color:var(--muted)}
-.main .side-card .tag{background:rgba(6,182,212,.1);border-color:rgba(6,182,212,.3);color:#0891b2}
-.main .side-card .cert-item{border-color:var(--line)}
-.main .side-card .flow-step{background:#f8fafc;border-color:var(--line)}
-.main .side-card .flow-arrow{color:var(--muted)}
-/* When a card moves to sidebar, give it dark styling */
+.main .side-card .section-title{color:var(--dark) !important}
+.main .side-card .section-title .ico{background:linear-gradient(135deg,var(--primary),var(--primary-2))}
+.main .side-card .g-label{color:var(--dark) !important}
+.main .side-card .g-val{color:var(--primary) !important;background:rgba(79,70,229,.1) !important}
+.main .side-card .g-bg{stroke:#e2e8f0 !important}
+.main .side-card .g-txt{fill:var(--primary) !important}
+.main .side-card .bar-head span{color:var(--dark) !important}
+.main .side-card .bar-head .bv{color:var(--primary) !important;background:rgba(79,70,229,.1) !important}
+.main .side-card .bar-track{background:#e2e8f0 !important}
+.main .side-card .stat{background:rgba(79,70,229,.06) !important;border-color:var(--line) !important}
+.main .side-card .stat .num{color:var(--primary) !important}
+.main .side-card .stat .lbl{color:var(--muted) !important}
+.main .side-card .tag{background:rgba(6,182,212,.1) !important;border-color:rgba(6,182,212,.3) !important;color:#0891b2 !important}
+.main .side-card .cert-item{border-color:var(--line) !important}
+.main .side-card .cert-name{color:var(--dark) !important}
+.main .side-card .flow-step{background:#f8fafc !important;border-color:var(--line) !important}
+.main .side-card .flow-step .n{background:linear-gradient(135deg,var(--primary),var(--accent))}
+.main .side-card .flow-step .t{color:var(--dark) !important}
+.main .side-card .flow-arrow{color:var(--muted) !important}
+.main .side-card .p-bar-head span{color:var(--dark) !important}
+.main .side-card .p-bar-head .bv{color:var(--primary) !important}
+.main .side-card .p-bar-track{background:#e2e8f0 !important}
+.main .side-card .personality-summary{background:rgba(79,70,229,.06) !important;border-color:var(--line) !important;color:#475569 !important}
+.main .side-card .pentagon-grid{stroke:#e2e8f0 !important}
+.main .side-card .pentagon-axis{stroke:#cbd5e1 !important}
+.main .side-card .pentagon-txt{fill:var(--muted) !important}
+.main .side-card .radar-ctl button{border-color:var(--line) !important;background:#f8fafc !important;color:var(--dark) !important}
+.main .side-card .radar-ctl button:hover{background:var(--primary) !important;color:#fff !important}
+.main .side-card .radar-hint{color:var(--muted) !important}
+.main .side-card .item-ctl button{border-color:var(--primary) !important;background:rgba(79,70,229,.08) !important;color:var(--primary) !important}
+
+/* ===== card moved to sidebar (dark bg) ===== */
 .sidebar .card{
-  background:rgba(255,255,255,.05);border:1px solid var(--dark-line);
-  color:#e2e8f0;box-shadow:none;
+  background:rgba(255,255,255,.05) !important;border:1px solid var(--dark-line) !important;
+  color:#e2e8f0 !important;box-shadow:none !important;
 }
-.sidebar .card .section-title{color:#fff}
-.sidebar .card .about-text{color:#cbd5e1}
-.sidebar .card .about-text b{color:#a5b4fc}
-.sidebar .card .t-role{color:#fff}
-.sidebar .card .t-org{color:#a5b4fc}
-.sidebar .card .t-desc{color:#94a3b8}
-.sidebar .card .t-date{background:rgba(6,182,212,.15);border-color:rgba(6,182,212,.3);color:#67e8f9}
-.sidebar .card .t-tag{background:rgba(79,70,229,.2);color:#c4b5fd}
-.sidebar .card .proj-name{color:#fff}
-.sidebar .card .proj-tech{color:#a5b4fc}
-.sidebar .card table{color:#e2e8f0}
-.sidebar .card th{background:rgba(79,70,229,.3)}
-.sidebar .card td{border-color:var(--dark-line)}
-.sidebar .card tr:nth-child(even) td{background:rgba(255,255,255,.03)}
-.sidebar .card .edu-title{color:#fff}
-.sidebar .card .edu-sub{color:#94a3b8}
-.sidebar .card .hint-bar{background:rgba(79,70,229,.1);border-color:rgba(79,70,229,.3);color:#cbd5e1}
+.sidebar .card .section-title{color:#fff !important}
+.sidebar .card .section-title .ico{background:linear-gradient(135deg,var(--primary),var(--primary-2))}
+.sidebar .card .about-text{color:#cbd5e1 !important}
+.sidebar .card .about-text b{color:#a5b4fc !important}
+.sidebar .card .t-role{color:#fff !important}
+.sidebar .card .t-org{color:#a5b4fc !important}
+.sidebar .card .t-desc{color:#94a3b8 !important}
+.sidebar .card .t-date{background:rgba(6,182,212,.15) !important;border-color:rgba(6,182,212,.3) !important;color:#67e8f9 !important}
+.sidebar .card .t-tag{background:rgba(79,70,229,.2) !important;color:#c4b5fd !important}
+.sidebar .card .proj-name{color:#fff !important}
+.sidebar .card .proj-tech{color:#a5b4fc !important}
+.sidebar .card table{color:#e2e8f0 !important}
+.sidebar .card th{background:rgba(79,70,229,.3) !important}
+.sidebar .card td{border-color:var(--dark-line) !important}
+.sidebar .card tr:nth-child(even) td{background:rgba(255,255,255,.03) !important}
+.sidebar .card .edu-title{color:#fff !important}
+.sidebar .card .edu-sub{color:#94a3b8 !important}
+.sidebar .card .edu-date{color:#67e8f9 !important}
+.sidebar .card .edu-ico{background:rgba(79,70,229,.15) !important;border-color:rgba(79,70,229,.3) !important}
+.sidebar .card .hint-bar{background:rgba(79,70,229,.1) !important;border-color:rgba(79,70,229,.3) !important;color:#cbd5e1 !important}
+.sidebar .card .item-ctl button{border-color:var(--accent) !important;background:rgba(6,182,212,.1) !important;color:#67e8f9 !important}
+.sidebar .card .card-ctl button{background:rgba(226,232,240,.12) !important;border-color:rgba(226,232,240,.3) !important;color:#e2e8f0 !important}
 
 @media(max-width:860px){
   .grid{grid-template-columns:1fr}
@@ -857,8 +893,11 @@ tr:nth-child(even) td{background:#f8fafc}
   </div>
 </div>
 
-<div class="footer-note" data-i18n="footerText"><div style="text-align:center;font-size:11px;color:#94a3b8;padding:8px 0;border-top:1px solid #e2e8f0;margin-top:20px;">
-  <span>ساخته شده با ❤️ توسط <a href="https://github.com/skynet2022" target="_blank" style="color:#4f46e5;text-decoration:none;font-weight:700;">skynet2022</a></span>
+<div class="footer-note" data-i18n="footerText">
+  <div style="text-align:center;font-size:11px;color:#94a3b8;padding:8px 0;border-top:1px solid #e2e8f0;margin-top:20px;">
+    <span>ساخته شده با ❤️ توسط <a href="https://github.com/skynet2022" target="_blank" style="color:#4f46e5;text-decoration:none;font-weight:700;">skynet2022</a></span>
+  </div>
+</div>
 
 
 <div class="test-overlay" id="testOverlay">
@@ -2229,58 +2268,64 @@ document.addEventListener('click',function(e){
   }
 });
 
-/* ===== Drag & Drop (only in edit mode, cross-column) ===== */
+/* ===== Drag & Drop (drag-handle based, edit mode only) ===== */
 let dragItem=null;
 let dragType=null;
 let currentSep=null;
 
-function setDraggableState(enable){
+function ensureDragHandles(){
   document.querySelectorAll('.card,.side-card').forEach(el=>{
-    el.setAttribute('draggable',enable);
-    el.style.cursor=enable?'grab':'default';
+    if(!el.querySelector(':scope > .drag-handle')){
+      const h=document.createElement('div');
+      h.className='drag-handle';
+      h.innerHTML='<span class="grip">&#9776;</span>';
+      el.insertBefore(h,el.firstChild);
+    }
   });
-  // Ensure interactive children are NOT draggable
-  if(enable){
-    document.querySelectorAll('.card *,.side-card *').forEach(el=>{
-      if(!el.hasAttribute('draggable'))return;
-      if(el.tagName!=='DIV'||!el.classList.contains('card')&&!el.classList.contains('side-card')){
-        el.setAttribute('draggable','false');
-      }
-    });
-  }
+}
+
+function setDraggableState(enable){
+  ensureDragHandles();
+  document.querySelectorAll('.drag-handle').forEach(h=>{
+    h.setAttribute('draggable',enable);
+    h.style.display=enable?'flex':'none';
+  });
+  document.querySelectorAll('.card,.side-card').forEach(el=>{
+    el.removeAttribute('draggable');
+    el.style.cursor='';
+  });
 }
 
 function initDragAndDrop(){
+  ensureDragHandles();
   document.querySelectorAll('.main,.sidebar').forEach(el=>{
     el.addEventListener('dragover',onDragOver);
     el.addEventListener('dragleave',onDragLeave);
     el.addEventListener('drop',onDrop);
   });
-  document.querySelectorAll('.card,.side-card').forEach(el=>{
-    el.addEventListener('dragstart',onDragStart);
-    el.addEventListener('dragend',onDragEnd);
+  document.addEventListener('dragstart',function(e){
+    if(e.target.classList&&e.target.classList.contains('drag-handle')){onDragStart(e);}
+  });
+  document.addEventListener('dragend',function(e){
+    if(e.target.classList&&e.target.classList.contains('drag-handle')){onDragEnd(e);}
   });
   setDraggableState(false);
 }
 
 function onDragStart(e){
-  if(!document.body.classList.contains('editing')){e.preventDefault();return false;}
-  // Don't start card drag if user is interacting with a child element
-  // (radar dots, gauges, bars, contenteditable, buttons, inputs, etc.)
-  const interactiveSelectors='.pentagon-dot,.gauge,.bar-fill,.bar-track,.g-svg,.g-val,.item-ctl button,.radar-ctl button,.card-ctl button,.rem-btn,[contenteditable],input,select,textarea,a,.flow-step,.stat,.tag,.cert-item,.edu-item,.t-item';
-  if(e.target.closest(interactiveSelectors)){
-    e.preventDefault();
-    return false;
-  }
-  dragItem=this;
-  dragType=this.classList.contains('card')?'card':'side-card';
-  e.dataTransfer.setData('text/plain',this.dataset.id||'');
+  if(!document.body.classList.contains('editing')){e.preventDefault();return;}
+  const handle=e.target;
+  const card=handle.closest('.card,.side-card');
+  if(!card){e.preventDefault();return;}
+  dragItem=card;
+  dragType=card.classList.contains('card')?'card':'side-card';
+  e.dataTransfer.setData('text/plain',card.dataset.id||'');
   e.dataTransfer.effectAllowed='move';
-  this.classList.add('dragging');
+  card.classList.add('dragging');
 }
 
 function onDragEnd(e){
-  this.classList.remove('dragging');
+  if(dragItem){dragItem.classList.remove('dragging');}
   clearSeparator();
   clearColumnHighlight();
   dragItem=null;
@@ -2293,18 +2338,11 @@ function onDragOver(e){
   e.dataTransfer.dropEffect='move';
   const container=this;
   container.classList.add('drag-over');
-  // Find the closest card/side-card to insert before/after
   const afterElement=getDragAfterElement(container,e.clientY);
   clearSeparator();
   if(afterElement==null){
-    // Append at end
     const last=container.lastElementChild;
-    if(last&&last!==dragItem){
-      const sep=document.createElement('div');
-      sep.className='drop-separator';
-      container.appendChild(sep);
-      currentSep=sep;
-    }else if(last!==dragItem){
+    if(last!==dragItem){
       const sep=document.createElement('div');
       sep.className='drop-separator';
       container.appendChild(sep);
@@ -2321,7 +2359,6 @@ function onDragOver(e){
 }
 
 function onDragLeave(e){
-  // Only clear if leaving the container itself (not entering a child)
   if(!this.contains(e.relatedTarget)||e.relatedTarget===null){
     this.classList.remove('drag-over');
     clearSeparator();
@@ -2334,9 +2371,7 @@ function getDragAfterElement(container,y){
   els.forEach(el=>{
     const box=el.getBoundingClientRect();
     const offset=y-box.top-box.height/2;
-    if(offset<0&&offset>closest.offset){
-      closest={offset:offset,element:el};
-    }
+    if(offset<0&&offset>closest.offset){closest={offset:offset,element:el};}
   });
   return closest.element;
 }
@@ -2354,19 +2389,12 @@ function onDrop(e){
   if(!document.body.classList.contains('editing')||!dragItem){e.preventDefault();return;}
   e.preventDefault();
   const container=this;
-  const draggedId=e.dataTransfer.getData('text/plain');
-  const draggedElement=draggedId?document.querySelector('[data-id="'+draggedId+'"]'):(dragItem||null);
+  const draggedElement=dragItem;
   if(!draggedElement||draggedElement===container)return;
-  // Remove separator if exists
   clearSeparator();
-  // Find insertion point
   const afterElement=getDragAfterElement(container,e.clientY);
-  if(afterElement==null){
-    container.appendChild(draggedElement);
-  }else{
-    container.insertBefore(draggedElement,afterElement);
-  }
-  // Adapt class: if card moved to sidebar or vice-versa
+  if(afterElement==null){container.appendChild(draggedElement);}
+  else{container.insertBefore(draggedElement,afterElement);}
   if(container.classList.contains('sidebar')&&draggedElement.classList.contains('card')){
     draggedElement.classList.remove('card');
     draggedElement.classList.add('side-card');
@@ -2374,6 +2402,7 @@ function onDrop(e){
     draggedElement.classList.remove('side-card');
     draggedElement.classList.add('card');
   }
+  ensureDragHandles();
   clearColumnHighlight();
   saveOrder();
 }
@@ -2399,9 +2428,7 @@ function loadOrder(){
     function applyOrder(container,list){
       if(!list||!list.length)return;
       const existing={};
-      container.querySelectorAll('.card,.side-card').forEach(el=>{
-        if(el.dataset.id)existing[el.dataset.id]=el;
-      });
+      container.querySelectorAll('.card,.side-card').forEach(el=>{if(el.dataset.id)existing[el.dataset.id]=el;});
       list.forEach(item=>{
         const el=existing[item.id];
         if(el){
@@ -2419,27 +2446,16 @@ function loadOrder(){
 
 function makeDraggable(el){
   if(!el)return;
-  const isEditing=document.body.classList.contains('editing');
-  el.setAttribute('draggable',isEditing);
-  el.style.cursor=isEditing?'grab':'default';
-  el.addEventListener('dragstart',onDragStart);
-  el.addEventListener('dragend',onDragEnd);
+  ensureDragHandles();
 }
 
 function refreshDraggableState(){
   const isEditing=document.body.classList.contains('editing');
-  document.querySelectorAll('.card,.side-card').forEach(el=>{
-    el.setAttribute('draggable',isEditing);
-    el.style.cursor=isEditing?'grab':'default';
+  ensureDragHandles();
+  document.querySelectorAll('.drag-handle').forEach(h=>{
+    h.setAttribute('draggable',isEditing);
+    h.style.display=isEditing?'flex':'none';
   });
-  if(isEditing){
-    document.querySelectorAll('.card *,.side-card *').forEach(el=>{
-      const tag=el.tagName;
-      // Only top-level card/side-card divs should be draggable
-      if(el.classList.contains('card')||el.classList.contains('side-card'))return;
-      el.setAttribute('draggable','false');
-    });
-  }
 }
 
 /* ===== Init ===== */
