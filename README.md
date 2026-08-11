@@ -1,6 +1,6 @@
 <div dir="rtl" align="center">
 
-# 🚀 رزومه‌ساز تعاملی و چندزبانه (۸ زبانه)
+# 🚀 رزومه‌ساز تعاملی و چندزبانه 
 
 [![GitHub repo size](https://img.shields.io/github/repo-size/skynet2022/resume_creator?style=flat-square&color=4f46e5)](https://github.com/skynet2022/resume_creator)
 [![GitHub language count](https://img.shields.io/github/languages/count/skynet2022/resume_creator?style=flat-square&color=06b6d4)](https://github.com/skynet2022/resume_creator)
