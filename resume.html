@@ -1459,9 +1459,7 @@ function applyLang(){
   document.getElementById('tmNote').textContent=t('test.note');
 
   // Update content from translations (if not editing)
-  if(!editing){
-    loadContentForLang(currentLang);
-  }
+  loadContentForLang(currentLang);
 
   try{localStorage.setItem(LANG_KEY,currentLang)}catch(e){}
   buildRadarChart();
@@ -1493,12 +1491,13 @@ document.getElementById('btnEdit').addEventListener('click',function(){
 
 document.getElementById('langSel').addEventListener('change',function(){
   if(!LANG_CFG[this.value])return;
-  // Save current content before switching
-  if(editing){saveContentForLang(currentLang);}
+  // Save current content before switching language
+  if(editing){
+    saveContentForLang(currentLang);
+  }
   currentLang=this.value;
   applyLang();
 });
-
 document.addEventListener('input',function(e){
   const el=e.target;
   if(el.matches('#skills .g-val'))setGauge(el.closest('.gauge'),toEn(el.textContent));
