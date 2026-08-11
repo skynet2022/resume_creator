@@ -344,7 +344,7 @@ If you have ideas for improvements, bug fixes, or new languages, we'd love your 
 
 <div dir="rtl">
 
-**اگر از این پروژه خوشتان آمد، به آن ستاره (Star) دهید!**  
+**اگر از این پروژه خوشتون اومد، بهش ستاره (Star) بدید **
 ستاره‌هاتون به من انرژی مثبت ‌میده تا پروژه رو بهبود بدم و قابلیت‌های جدید اضافه کنم. 🙏
 
 </div>
