@@ -17,7 +17,7 @@
 |:----:|:-----|:---------|
 | <img src="https://flagcdn.com/ir.svg" width="28" height="18" alt="Iran"> | فارسی | زبان مادری |
 | <img src="https://flagcdn.com/gb.svg" width="28" height="18" alt="UK"> | English | زبان بین‌المللی |
-| <img src="https://flagcdn.com/sa.svg" width="28" height="18" alt="Saudi Arabia"> | العربية | زبان عربی |
+| <img src="https://flagcdn.com/ye.svg" width="28" height="18" alt="Yemen"> | العربية | زبان عربی |
 | <img src="https://flagcdn.com/ru.svg" width="28" height="18" alt="Russia"> | Русский | زبان روسی |
 | <img src="https://flagcdn.com/cn.svg" width="28" height="18" alt="China"> | 中文 | زبان چینی |
 | <img src="https://flagcdn.com/es.svg" width="28" height="18" alt="Spain"> | Español | زبان اسپانیایی |
