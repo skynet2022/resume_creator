@@ -911,6 +911,7 @@ body.editing .card .drag-handle,body.editing .side-card .drag-handle{display:fle
       <div class="tm-question" id="tmQuestion"></div>
       <div class="tm-options" id="tmOptions"></div>
       <div class="tm-note" id="tmNote"></div>
+      <div class="tm-actions" style="margin-top:14px"><button class="tm-btn" id="tmCancelQuiz"></button></div>
     </div>
     <div id="tmResult" style="display:none">
       <div class="tm-result-title" id="tmResultTitle"></div>
@@ -1005,7 +1006,7 @@ fa:{
   radar:{title:'شاخص‌های شخصیتی (۸ محور)',manual:'✎ ویرایش دستی',test:'📝 آزمون شخصیت',save:'✓ ذخیره',cancel:'انصراف',viewHint:'برای تغییر رأس‌ها «ویرایش دستی» را بزنید',manualHint:'رأس‌ها را بکشید تا مقدار را تغییر دهید',testDone:'آزمون انجام شده — برای تکرار دوباره بزنید'},
   axes:{responsibility:'مسئولیت‌پذیری',leadership:'رهبری',teamwork:'کار تیمی',creativity:'خلاقیت',problemSolving:'حل مسئله',adaptability:'انعطاف‌پذیری',timeManagement:'مدیریت زمان',communication:'ارتباط'},
   sum:{responsibility:{hi:'بسیار مسئولیت‌پذیر و قابل اعتماد.',mid:'منظم است؛ گاهی نیاز به تمرکز بیشتر دارد.',lo:'انعطاف بیشتری در انجام وظایف ترجیح می‌دهد.'},leadership:{hi:'رهبر طبیعی با توانایی هدایت تیم.',mid:'توانایی رهبری را دارد.',lo:'نقش تخصصی را ترجیح می‌دهد.'},teamwork:{hi:'همکار عالی با روحیه تیمی بالا.',mid:'در کار تیمی خوب است.',lo:'کار فردی را ترجیح می‌دهد.'},creativity:{hi:'خلاق و مولد ایده‌های نو.',mid:'خلاقیت خوبی دارد.',lo:'عملگرا و متمرکز بر راه‌حل‌های اثبات‌شده.'},problemSolving:{hi:'حل‌کننده قوی مسئله.',mid:'در حل مسئله خوب است.',lo:'در شرایط پیچیده نیاز به فرآیند مشخص دارد.'},adaptability:{hi:'به‌سرعت با شرایط جدید سازگار می‌شود.',mid:'انعطاف‌پذیری معقولی دارد.',lo:'تغییرات ناگهانی چالش‌برانگیز است.'},timeManagement:{hi:'مدیریت زمان عالی.',mid:'زمان را منظم مدیریت می‌کند.',lo:'نیاز به برنامه‌ریزی بیشتر دارد.'},communication:{hi:'ارتباطگر قوی؛ شفاف و متقاعدکننده.',mid:'ارتباط خوبی دارد.',lo:'در انتقال پیام تمرین بیشتری می‌خواهد.'}},
-  test:{title:'آزمون خودارزیابی شخصیت',q:'سؤال',of:'از',timeLeft:'زمان باقیمانده',sec:'ثانیه',result:'نتیجه آزمون شما',save:'✓ ثبت نتیجه',retake:'↺ تکرار',close:'بستن',note:'هر سؤال ۲۰ ثانیه زمان دارد. در صورت عدم پاسخ، گزینه خنثی ثبت می‌شود.'},
+  test:{title:'آزمون خودارزیابی شخصیت',q:'سؤال',of:'از',timeLeft:'زمان باقیمانده',sec:'ثانیه',result:'نتیجه آزمون شما',save:'✓ ثبت نتیجه',retake:'↺ تکرار',close:'بستن',cancel:'لغو آزمون',note:'هر سؤال ۲۰ ثانیه زمان دارد. در صورت عدم پاسخ، گزینه خنثی ثبت می‌شود.'},
   likert:{1:'کاملاً مخالف',2:'مخالف',3:'خنثی',4:'موافق',5:'کاملاً موافق'},
   q:{resp1:'کارهای محولشده را معمولاً قبل از مهلت کامل می‌کنم.',resp2:'وقتی مسئولیتی می‌پذیرم، تا پایان پیگیری می‌کنم.',resp3:'گاهی کارها به دلیل بی‌دقتی به تأخیر می‌افتد.',lead1:'در جمع‌های کاری معمولاً هدایت گروه را به عهده می‌گیرم.',lead2:'می‌توانم دیگران را برای هدف مشترک ترغیب کنم.',lead3:'ترجیح می‌دهم تصمیم‌گیری مهم را به دیگران واگذار کنم.',team1:'از کار تیمی لذت می‌برم.',team2:'به نظرات اعضای تیم احترام می‌گذارم.',team3:'ترجیح می‌دهم کارها را تنها انجام دهم.',crea1:'برای مسائل روزمره هم ایده‌های تازه دارم.',crea2:'از آزمودن روش‌های جدید استقبال می‌کنم.',crea3:'به روش‌های همیشگی بیشتر اعتماد دارم.',prob1:'هنگام مشکل خونسردی خود را حفظ می‌کنم.',prob2:'مسائل پیچیده را به بخش‌های کوچکتر تقسیم می‌کنم.',prob3:'در شرایط سخت به‌سرعت سردرگم می‌شوم.',adap1:'با تغییر شرایط کاری به‌سرعت سازگار می‌شوم.',adap2:'در موقعیت‌های پیش‌بینی‌نشده انعطاف‌پذیرم.',adap3:'تغییرات ناگهانی تعادل مرا به‌هم می‌زند.',time1:'برنامه‌هایم را با اولویت‌بندی پیش می‌برم.',time2:'مهلت‌ها را به‌خوبی مدیریت می‌کنم.',time3:'معمولاً کارها را به لحظه آخر می‌سپارم.',comm1:'ایده‌هایم را واضح منتقل می‌کنم.',comm2:'شنونده خوبی هستم.',comm3:'در بیان نظر در جمع مشکل دارم.'}
 },
@@ -1014,7 +1015,7 @@ en:{
   radar:{title:'Personality Traits (8 axes)',manual:'✎ Edit Manually',test:'📝 Take the Test',save:'✓ Save',cancel:'Cancel',viewHint:'Click "Edit Manually" to drag vertices',manualHint:'Drag vertices to change values',testDone:'Test completed — click to retake'},
   axes:{responsibility:'Responsibility',leadership:'Leadership',teamwork:'Teamwork',creativity:'Creativity',problemSolving:'Problem Solving',adaptability:'Adaptability',timeManagement:'Time Management',communication:'Communication'},
   sum:{responsibility:{hi:'Highly responsible and dependable.',mid:'Organized; occasionally needs stronger focus.',lo:'Prefers a more flexible approach.'},leadership:{hi:'A natural leader who guides teams.',mid:'Has leadership ability.',lo:'Prefers a specialist role.'},teamwork:{hi:'Great team player with strong spirit.',mid:'Works well in teams.',lo:'Prefers individual work.'},creativity:{hi:'Creative and full of fresh ideas.',mid:'Shows good creativity.',lo:'Pragmatic, focused on proven solutions.'},problemSolving:{hi:'Strong problem-solver.',mid:'Handles problems well.',lo:'Needs a clear process in complex situations.'},adaptability:{hi:'Adapts quickly to new conditions.',mid:'Reasonably flexible.',lo:'Sudden changes are challenging.'},timeManagement:{hi:'Excellent time management.',mid:'Manages time in an organized way.',lo:'Needs more planning.'},communication:{hi:'Strong communicator; clear and persuasive.',mid:'Communicates well.',lo:'Needs more practice.'}},
-  test:{title:'Personality Self-Assessment',q:'Question',of:'of',timeLeft:'Time left',sec:'sec',result:'Your Test Result',save:'✓ Save Result',retake:'↺ Retake',close:'Close',note:'Each question has 20 seconds. No answer = Neutral.'},
+  test:{title:'Personality Self-Assessment',q:'Question',of:'of',timeLeft:'Time left',sec:'sec',result:'Your Test Result',save:'✓ Save Result',retake:'↺ Retake',close:'Close',cancel:'Cancel Test',note:'Each question has 20 seconds. No answer = Neutral.'},
   likert:{1:'Strongly Disagree',2:'Disagree',3:'Neutral',4:'Agree',5:'Strongly Agree'},
   q:{resp1:'I usually complete tasks before the deadline.',resp2:'Once I accept responsibility, I follow it through.',resp3:'Sometimes my carelessness delays tasks.',lead1:'In work groups, I usually take the lead.',lead2:'I can motivate others toward shared goals.',lead3:'I prefer letting others make important decisions.',team1:'I enjoy teamwork.',team2:'I respect team members opinions.',team3:'I prefer working alone.',crea1:'I have fresh ideas even for everyday problems.',crea2:'I like trying new approaches.',crea3:'I trust familiar methods more.',prob1:'I stay calm when facing problems.',prob2:'I break complex problems into smaller parts.',prob3:'I get confused quickly in difficult situations.',adap1:'I adapt quickly to changing conditions.',adap2:'I stay flexible in unexpected situations.',adap3:'Sudden changes throw me off balance.',time1:'I work through plans with clear priorities.',time2:'I manage deadlines well.',time3:'I usually leave things to the last minute.',comm1:'I convey my ideas clearly.',comm2:'I am a good listener.',comm3:'I struggle to voice my opinion in groups.'}
 },
@@ -1023,7 +1024,7 @@ ar:{
   radar:{title:'سمات الشخصية (8 محاور)',manual:'✎ تحرير يدوي',test:'📝 اختبار الشخصية',save:'✓ حفظ',cancel:'إلغاء',viewHint:'اضغط "تحرير يدوي" لتغيير القيم',manualHint:'اسحب الرؤوس لتغيير القيم',testDone:'تم الاختبار — اضغط للتكرار'},
   axes:{responsibility:'المسؤولية',leadership:'القيادة',teamwork:'العمل الجماعي',creativity:'الإبداع',problemSolving:'حل المشكلات',adaptability:'المرونة',timeManagement:'إدارة الوقت',communication:'التواصل'},
   sum:{responsibility:{hi:'مسؤول جدًا وموثوق.',mid:'منظم ويحتاج أحيانًا تركيز أكبر.',lo:'يفضل مرونة أكبر.'},leadership:{hi:'قائد طبيعي يوجّه الفريق.',mid:'لديه قدرة قيادية.',lo:'يفضل دور المختص.'},teamwork:{hi:'زميل ممتاز وروح فريق عالية.',mid:'يعمل جيدًا ضمن الفريق.',lo:'يفضل العمل الفردي.'},creativity:{hi:'مبدع ومليء بالأفكار.',mid:'إبداع جيد.',lo:'عملي ويركّز على الحلول المجرّبة.'},problemSolving:{hi:'حلّال قوي للمشكلات.',mid:'يتعامل مع المشكلات جيدًا.',lo:'يحتاج عملية واضحة في المواقف المعقدة.'},adaptability:{hi:'يتكيف بسرعة مع الظروف.',mid:'مرن بشكل معقول.',lo:'التغيرات المفاجئة تشكّل تحديًا.'},timeManagement:{hi:'إدارة وقت ممتازة.',mid:'يدير الوقت بشكل منظم.',lo:'يحتاج تخطيط أكثر.'},communication:{hi:'متواصل قوي وواضح.',mid:'يتواصل جيدًا.',lo:'يحتاج تدريب أكثر.'}},
-  test:{title:'تقييم الشخصية الذاتي',q:'سؤال',of:'من',timeLeft:'الوقت المتبقي',sec:'ثانية',result:'نتيجة الاختبار',save:'✓ حفظ النتيجة',retake:'↺ إعادة',close:'إغلاق',note:'كل سؤال 20 ثانية. عدم الإجابة = محايد.'},
+  test:{title:'تقييم الشخصية الذاتي',q:'سؤال',of:'من',timeLeft:'الوقت المتبقي',sec:'ثانية',result:'نتيجة الاختبار',save:'✓ حفظ النتيجة',retake:'↺ إعادة',close:'إغلاق',cancel:'إلغاء الاختبار',note:'كل سؤال 20 ثانية. عدم الإجابة = محايد.'},
   likert:{1:'أعارض بشدة',2:'أعارض',3:'محايد',4:'أوافق',5:'أوافق بشدة'},
   q:{resp1:'عادةً ما أكمل المهام قبل الموعد.',resp2:'عندما أقبل مسؤولية أتابعها حتى النهاية.',resp3:'أحيانًا يتسبب إهمالي في تأخير الأعمال.',lead1:'في مجموعات العمل عادةً أتولى القيادة.',lead2:'أستطيع تشجيع الآخرين للوصول إلى هدف مشترك.',lead3:'أفضل أن يتخذ الآخرون القرارات المهمة.',team1:'أستمتع بالعمل الجماعي.',team2:'أحترم آراء أعضاء الفريق.',team3:'أفضل العمل بمفردي.',crea1:'لديّ أفكار جديدة حتى للمشكلات اليومية.',crea2:'أرحب بتجربة طرق جديدة.',crea3:'أثق بالطرق المألوفة أكثر.',prob1:'أحافظ على هدوئي عند مواجهة المشكلات.',prob2:'أقسم المشكلات المعقدة إلى أجزاء أصغر.',prob3:'أرتبك بسرعة في الظروف الصعبة.',adap1:'أتكيف بسرعة مع الظروف المتغيرة.',adap2:'أحافظ على مرونتي في المواقف غير المتوقعة.',adap3:'التغيرات المفاجئة تخل بتوازني.',time1:'أنفذ خططي بأولويات واضحة.',time2:'أدير المواعيد النهائية جيدًا.',time3:'عادةً أترك الأعمال إلى اللحظة الأخيرة.',comm1:'أنقل أفكاري بوضوح.',comm2:'أنا مستمع جيد.',comm3:'أواجه صعوبة في إبداء رأيي بين الناس.'}
 },
@@ -1032,7 +1033,7 @@ ru:{
   radar:{title:'Черты личности (8 осей)',manual:'✎ Ручное редактирование',test:'📝 Пройти тест',save:'✓ Сохранить',cancel:'Отмена',viewHint:'Нажмите «Ручное редактирование» для изменения',manualHint:'Перетаскивайте вершины для изменения значений',testDone:'Тест пройден — нажмите для повтора'},
   axes:{responsibility:'Ответственность',leadership:'Лидерство',teamwork:'Командная работа',creativity:'Креативность',problemSolving:'Решение проблем',adaptability:'Адаптивность',timeManagement:'Управление временем',communication:'Коммуникация'},
   sum:{responsibility:{hi:'Очень ответственный и надёжный.',mid:'Организован, иногда требует большего фокуса.',lo:'Предпочитает гибкий подход.'},leadership:{hi:'Природный лидер, ведущий за собой.',mid:'Обладает лидерскими качествами.',lo:'Предпочитает роль специалиста.'},teamwork:{hi:'Отличный командный игрок.',mid:'Хорошо работает в команде.',lo:'Предпочитает индивидуальную работу.'},creativity:{hi:'Творческий и полный новых идей.',mid:'Хорошая креативность.',lo:'Прагматичен, опирается на проверенные решения.'},problemSolving:{hi:'Сильный решатель проблем.',mid:'Хорошо справляется с проблемами.',lo:'Нуждается в чётком процессе в сложных ситуациях.'},adaptability:{hi:'Быстро адаптируется к новым условиям.',mid:'Разумно гибок.',lo:'Внезапные изменения сложны.'},timeManagement:{hi:'Отличное управление временем.',mid:'Организованно управляет временем.',lo:'Нуждается в большем планировании.'},communication:{hi:'Сильный коммуникатор, ясный и убедительный.',mid:'Хорошо коммуницирует.',lo:'Нуждается в большей практике.'}},
-  test:{title:'Самооценка личности',q:'Вопрос',of:'из',timeLeft:'Осталось',sec:'сек',result:'Ваш результат',save:'✓ Сохранить',retake:'↺ Повторить',close:'Закрыть',note:'Каждый вопрос — 20 секунд. Нет ответа = Нейтрально.'},
+  test:{title:'Самооценка личности',q:'Вопрос',of:'из',timeLeft:'Осталось',sec:'сек',result:'Ваш результат',save:'✓ Сохранить',retake:'↺ Повторить',close:'Закрыть',cancel:'Отменить тест',note:'Каждый вопрос — 20 секунд. Нет ответа = Нейтрально.'},
   likert:{1:'Полностью не согласен',2:'Не согласен',3:'Нейтрально',4:'Согласен',5:'Полностью согласен'},
   q:{resp1:'Я обычно выполняю задачи до срока.',resp2:'Приняв ответственность, довожу дело до конца.',resp3:'Иногда моя невнимательность задерживает задачи.',lead1:'В рабочих группах я обычно беру на себя лидерство.',lead2:'Я могу мотивировать других к общей цели.',lead3:'Я предпочитаю доверять важные решения другим.',team1:'Я люблю командную работу.',team2:'Я уважаю мнения членов команды.',team3:'Я предпочитаю работать один.',crea1:'У меня есть свежие идеи даже для повседневных задач.',crea2:'Мне нравится пробовать новые подходы.',crea3:'Я больше доверяю привычным методам.',prob1:'Я сохраняю спокойствие перед проблемами.',prob2:'Я разбиваю сложные проблемы на части.',prob3:'Я быстро теряюсь в сложных ситуациях.',adap1:'Я быстро адаптируюсь к меняющимся условиям.',adap2:'Я остаюсь гибким в неожиданных ситуациях.',adap3:'Внезапные изменения выбивают меня из колеи.',time1:'Я работаю по плану с чёткими приоритетами.',time2:'Я хорошо управляю дедлайнами.',time3:'Я обычно оставляю всё на последнюю минуту.',comm1:'Я ясно излагаю свои идеи.',comm2:'Я хороший слушатель.',comm3:'Мне трудно высказывать мнение в группе.'}
 },
@@ -1041,7 +1042,7 @@ zh:{
   radar:{title:'人格特质（8个维度）',manual:'✎ 手动编辑',test:'📝 性格测试',save:'✓ 保存',cancel:'取消',viewHint:'点击"手动编辑"拖动顶点',manualHint:'拖动顶点更改数值',testDone:'测试已完成 — 点击重试'},
   axes:{responsibility:'责任心',leadership:'领导力',teamwork:'团队合作',creativity:'创造力',problemSolving:'问题解决',adaptability:'适应能力',timeManagement:'时间管理',communication:'沟通能力'},
   sum:{responsibility:{hi:'非常负责且可靠。',mid:'有条理，偶尔需要更多专注。',lo:'偏好更灵活的方式。'},leadership:{hi:'天生的领导者，能引导团队。',mid:'具备领导能力。',lo:'偏好专业角色。'},teamwork:{hi:'优秀的团队合作者。',mid:'团队合作良好。',lo:'偏好个人工作。'},creativity:{hi:'富有创造力和新想法。',mid:'创造力不错。',lo:'务实，专注已验证的方案。'},problemSolving:{hi:'强有力的问题解决者。',mid:'能较好地解决问题。',lo:'复杂情况需要明确流程。'},adaptability:{hi:'快速适应新环境。',mid:'适度灵活。',lo:'突发变化具有挑战性。'},timeManagement:{hi:'出色的时间管理。',mid:'有条理地管理时间。',lo:'需要更多规划。'},communication:{hi:'强有力的沟通者，清晰有说服力。',mid:'沟通良好。',lo:'需要更多练习。'}},
-  test:{title:'性格自我评估',q:'问题',of:'共',timeLeft:'剩余时间',sec:'秒',result:'您的测试结果',save:'✓ 保存结果',retake:'↺ 重试',close:'关闭',note:'每题20秒。不作答=中立。'},
+  test:{title:'性格自我评估',q:'问题',of:'共',timeLeft:'剩余时间',sec:'秒',result:'您的测试结果',save:'✓ 保存结果',retake:'↺ 重试',close:'关闭',cancel:'取消测试',note:'每题20秒。不作答=中立。'},
   likert:{1:'完全不同意',2:'不同意',3:'中立',4:'同意',5:'完全同意'},
   q:{resp1:'我通常在截止日期前完成任务。',resp2:'一旦接受责任，我会坚持到底。',resp3:'有时我的疏忽会延误任务。',lead1:'在工作组中，我通常担任领导。',lead2:'我能激励他人追求共同目标。',lead3:'我更愿意让他人做重要决定。',team1:'我喜欢团队合作。',team2:'我尊重团队成员的意见。',team3:'我更喜欢独自工作。',crea1:'即使日常问题我也有新想法。',crea2:'我喜欢尝试新方法。',crea3:'我更信任熟悉的方法。',prob1:'面对问题时我保持冷静。',prob2:'我将复杂问题分解为小部分。',prob3:'在困难情况下我很快困惑。',adap1:'我快速适应变化的环境。',adap2:'在意外情况下我保持灵活。',adap3:'突然的变化让我失衡。',time1:'我按明确的优先级执行计划。',time2:'我很好地管理截止日期。',time3:'我通常把事情拖到最后一刻。',comm1:'我清晰地表达想法。',comm2:'我是好的倾听者。',comm3:'我在群体中难以表达意见。'}
 },
@@ -1050,7 +1051,7 @@ es:{
   radar:{title:'Rasgos de personalidad (8 ejes)',manual:'✎ Editar manualmente',test:'📝 Hacer el test',save:'✓ Guardar',cancel:'Cancelar',viewHint:'Pulsa "Editar manualmente" para arrastrar vértices',manualHint:'Arrastra los vértices para cambiar valores',testDone:'Test completado — pulsa para repetir'},
   axes:{responsibility:'Responsabilidad',leadership:'Liderazgo',teamwork:'Trabajo en equipo',creativity:'Creatividad',problemSolving:'Resolución de problemas',adaptability:'Adaptabilidad',timeManagement:'Gestión del tiempo',communication:'Comunicación'},
   sum:{responsibility:{hi:'Muy responsable y fiable.',mid:'Organizado; a veces necesita más enfoque.',lo:'Prefiere un enfoque más flexible.'},leadership:{hi:'Líder natural que guía equipos.',mid:'Tiene capacidad de liderazgo.',lo:'Prefiere un rol especializado.'},teamwork:{hi:'Excelente jugador de equipo.',mid:'Trabaja bien en equipo.',lo:'Prefiere trabajo individual.'},creativity:{hi:'Creativo y lleno de ideas nuevas.',mid:'Buena creatividad.',lo:'Pragmático, enfocado en soluciones probadas.'},problemSolving:{hi:'Fuerte resolvedor de problemas.',mid:'Maneja bien los problemas.',lo:'Necesita un proceso claro en situaciones complejas.'},adaptability:{hi:'Se adapta rápidamente a nuevas condiciones.',mid:'Razonablemente flexible.',lo:'Los cambios repentinos son un desafío.'},timeManagement:{hi:'Excelente gestión del tiempo.',mid:'Gestiona el tiempo de forma organizada.',lo:'Necesita más planificación.'},communication:{hi:'Fuerte comunicador; claro y persuasivo.',mid:'Comunica bien.',lo:'Necesita más práctica.'}},
-  test:{title:'Autoevaluación de personalidad',q:'Pregunta',of:'de',timeLeft:'Tiempo restante',sec:'seg',result:'Su resultado',save:'✓ Guardar resultado',retake:'↺ Repetir',close:'Cerrar',note:'Cada pregunta: 20 segundos. Sin respuesta = Neutral.'},
+  test:{title:'Autoevaluación de personalidad',q:'Pregunta',of:'de',timeLeft:'Tiempo restante',sec:'seg',result:'Su resultado',save:'✓ Guardar resultado',retake:'↺ Repetir',close:'Cerrar',cancel:'Cancelar test',note:'Cada pregunta: 20 segundos. Sin respuesta = Neutral.'},
   likert:{1:'Totalmente en desacuerdo',2:'En desacuerdo',3:'Neutral',4:'De acuerdo',5:'Totalmente de acuerdo'},
   q:{resp1:'Normalmente completo las tareas antes del plazo.',resp2:'Una vez que acepto una responsabilidad, la sigo hasta el final.',resp3:'A veces mi descuido retrasa las tareas.',lead1:'En grupos de trabajo, suelo asumir el liderazgo.',lead2:'Puedo motivar a otros hacia objetivos compartidos.',lead3:'Prefiero que otros tomen las decisiones importantes.',team1:'Disfruto el trabajo en equipo.',team2:'Respeto las opiniones de los miembros del equipo.',team3:'Prefiero trabajar solo.',crea1:'Tengo ideas nuevas incluso para problemas cotidianos.',crea2:'Me gusta probar enfoques nuevos.',crea3:'Confío más en métodos familiares.',prob1:'Mantengo la calma frente a problemas.',prob2:'Divido problemas complejos en partes más pequeñas.',prob3:'Me confundo rápidamente en situaciones difíciles.',adap1:'Me adapto rápidamente a condiciones cambiantes.',adap2:'Mantengo la flexibilidad en situaciones inesperadas.',adap3:'Los cambios repentinos me desequilibran.',time1:'Ejecuto mis planes con prioridades claras.',time2:'Gestiono bien los plazos.',time3:'Suelo dejar todo para el último minuto.',comm1:'Transmito mis ideas con claridad.',comm2:'Soy un buen oyente.',comm3:'Tengo dificultad para expresar mi opinión en grupo.'}
 },
@@ -1059,7 +1060,7 @@ de:{
   radar:{title:'Persönlichkeitsmerkmale (8 Achsen)',manual:'✎ Manuell bearbeiten',test:'📝 Test machen',save:'✓ Speichern',cancel:'Abbrechen',viewHint:'Klicken Sie auf „Manuell bearbeiten" zum Ziehen',manualHint:'Ziehen Sie die Eckpunkte',testDone:'Test abgeschlossen — zum Wiederholen klicken'},
   axes:{responsibility:'Verantwortung',leadership:'Führung',teamwork:'Teamarbeit',creativity:'Kreativität',problemSolving:'Problemlösung',adaptability:'Anpassungsfähigkeit',timeManagement:'Zeitmanagement',communication:'Kommunikation'},
   sum:{responsibility:{hi:'Sehr verantwortungsvoll und zuverlässig.',mid:'Organisiert; braucht manchmal mehr Fokus.',lo:'Bevorzugt flexibleren Ansatz.'},leadership:{hi:'Natürlicher Führer, der Teams leitet.',mid:'Hat Führungsqualitäten.',lo:'Bevorzugt Spezialistenrolle.'},teamwork:{hi:'Ausgezeichneter Teamspieler.',mid:'Arbeitet gut im Team.',lo:'Bevorzugt Einzelarbeit.'},creativity:{hi:'Kreativ und voller neuer Ideen.',mid:'Gute Kreativität.',lo:'Pragmatisch, fokussiert auf bewährte Lösungen.'},problemSolving:{hi:'Starker Problemlöser.',mid:'Geht gut mit Problemen um.',lo:'Braucht klaren Prozess in komplexen Situationen.'},adaptability:{hi:'Passt sich schnell an neue Bedingungen an.',mid:'Angemessen flexibel.',lo:'Plötzliche Änderungen sind eine Herausforderung.'},timeManagement:{hi:'Ausgezeichnetes Zeitmanagement.',mid:'Verwaltet Zeit organisiert.',lo:'Braucht mehr Planung.'},communication:{hi:'Starker Kommunikator; klar und überzeugend.',mid:'Kommuniziert gut.',lo:'Braucht mehr Übung.'}},
-  test:{title:'Selbsteinschätzung der Persönlichkeit',q:'Frage',of:'von',timeLeft:'Verbleibende Zeit',sec:'Sek',result:'Ihr Ergebnis',save:'✓ Ergebnis speichern',retake:'↺ Wiederholen',close:'Schließen',note:'Jede Frage: 20 Sekunden. Keine Antwort = Neutral.'},
+  test:{title:'Selbsteinschätzung der Persönlichkeit',q:'Frage',of:'von',timeLeft:'Verbleibende Zeit',sec:'Sek',result:'Ihr Ergebnis',save:'✓ Ergebnis speichern',retake:'↺ Wiederholen',close:'Schließen',cancel:'Test abbrechen',note:'Jede Frage: 20 Sekunden. Keine Antwort = Neutral.'},
   likert:{1:'Stimme gar nicht zu',2:'Stimme nicht zu',3:'Neutral',4:'Stimme zu',5:'Stimme voll zu'},
   q:{resp1:'Ich erledige Aufgaben meist vor der Frist.',resp2:'Wenn ich Verantwortung übernehme, führe ich sie zu Ende.',resp3:'Manchmal verzögert meine Unachtsamkeit Aufgaben.',lead1:'In Arbeitsgruppen übernehme ich meist die Führung.',lead2:'Ich kann andere zu gemeinsamen Zielen motivieren.',lead3:'Ich überlasse wichtige Entscheidungen lieber anderen.',team1:'Ich genieße Teamarbeit.',team2:'Ich respektiere die Meinungen der Teammitglieder.',team3:'Ich arbeite lieber allein.',crea1:'Ich habe auch für Alltagsprobleme neue Ideen.',crea2:'Ich probiere gerne neue Ansätze.',crea3:'Ich vertraue mehr auf bewährte Methoden.',prob1:'Ich bleibe bei Problemen ruhig.',prob2:'Ich zerlege komplexe Probleme in kleinere Teile.',prob3:'Ich verliere in schwierigen Situationen schnell den Faden.',adap1:'Ich passe mich schnell an veränderte Bedingungen an.',adap2:'Ich bleibe in unerwarteten Situationen flexibel.',adap3:'Plötzliche Änderungen bringen mich aus dem Gleichgewicht.',time1:'Ich arbeite Pläne mit klaren Prioritäten ab.',time2:'Ich verwalte Fristen gut.',time3:'Ich verschiebe meist alles auf die letzte Minute.',comm1:'Ich vermittele meine Ideen klar.',comm2:'Ich bin ein guter Zuhörer.',comm3:'Ich habe Schwierigkeiten, meine Meinung in Gruppen zu äußern.'}
 },
@@ -1068,7 +1069,7 @@ hi:{
   radar:{title:'व्यक्तित्व लक्षण (8 अक्ष)',manual:'✎ मैन्युअल संपादन',test:'📝 टेस्ट दें',save:'✓ सहेजें',cancel:'रद्द करें',viewHint:'मान बदलने के लिए "मैन्युअल संपादन" दबाएं',manualHint:'मान बदलने के लिए शीर्षों को खींचें',testDone:'टेस्ट पूर्ण — फिर से देने के लिए क्लिक करें'},
   axes:{responsibility:'ज़िम्मेदारी',leadership:'नेतृत्व',teamwork:'टीमवर्क',creativity:'रचनात्मकता',problemSolving:'समस्या समाधान',adaptability:'अनुकूलनशीलता',timeManagement:'समय प्रबंधन',communication:'संचार'},
   sum:{responsibility:{hi:'अत्यधिक ज़िम्मेदार और भरोसेमंद.',mid:'व्यवस्थित; कभी-कभी अधिक ध्यान चाहिए.',lo:'अधिक लचीला दृष्टिकोण पसंद करता है.'},leadership:{hi:'प्राकृतिक नेता जो टीम का मार्गदर्शन करता है.',mid:'नेतृत्व क्षमता है.',lo:'विशेषज्ञ भूमिका पसंद करता है.'},teamwork:{hi:'उत्कृष्ट टीम खिलाड़ी.',mid:'टीम में अच्छा काम करता है.',lo:'व्यक्तिगत काम पसंद करता है.'},creativity:{hi:'रचनात्मक और नए विचारों से भरा.',mid:'अच्छी रचनात्मकता.',lo:'व्यावहारिक, सिद्ध समाधानों पर केंद्रित.'},problemSolving:{hi:'मजबूत समस्या समाधानकर्ता.',mid:'समस्याओं से अच्छा निपटता है.',lo:'जटिल स्थितियों में स्पष्ट प्रक्रिया चाहिए.'},adaptability:{hi:'नई परिस्थितियों में जल्दी अनुकूलित होता है.',mid:'उचित रूप से लचीला.',lo:'अचानक बदलाव चुनौतीपूर्ण हैं.'},timeManagement:{hi:'उत्कृष्ट समय प्रबंधन.',mid:'समय व्यवस्थित रूप से प्रबंधित करता है.',lo:'अधिक योजना चाहिए.'},communication:{hi:'मजबूत संचारक; स्पष्ट और प्रभावशाली.',mid:'अच्छा संवाद करता है.',lo:'अधिक अभ्यास चाहिए.'}},
-  test:{title:'व्यक्तित्व आत्म-मूल्यांकन',q:'प्रश्न',of:'में से',timeLeft:'शेष समय',sec:'सेकंड',result:'आपका परिणाम',save:'✓ परिणाम सहेजें',retake:'↺ फिर से',close:'बंद करें',note:'प्रत्येक प्रश्न: 20 सेकंड। उत्तर नहीं = तटस्थ।'},
+  test:{title:'व्यक्तित्व आत्म-मूल्यांकन',q:'प्रश्न',of:'में से',timeLeft:'शेष समय',sec:'सेकंड',result:'आपका परिणाम',save:'✓ परिणाम सहेजें',retake:'↺ फिर से',close:'बंद करें',cancel:'टेस्ट रद्द करें',note:'प्रत्येक प्रश्न: 20 सेकंड। उत्तर नहीं = तटस्थ।'},
   likert:{1:'पूर्ण असहमत',2:'असहमत',3:'तटस्थ',4:'सहमत',5:'पूर्ण सहमत'},
   q:{resp1:'मैं आमतौर पर समय से पहले काम पूरा करता हूं।',resp2:'एक बार ज़िम्मेदारी लेने पर, मैं इसे अंत तक पूरा करता हूं।',resp3:'कभी-कभी मेरी लापरवाही से काम देर से होता है।',lead1:'कार्य समूहों में, मैं आमतौर पर नेतृत्व करता हूं।',lead2:'मैं दूसरों को साझा लक्ष्यों के लिए प्रेरित कर सकता हूं।',lead3:'मैं महत्वपूर्ण निर्णय दूसरों पर छोड़ना पसंद करता हूं।',team1:'मुझे टीमवर्क पसंद है।',team2:'मैं टीम सदस्यों की राय का सम्मान करता हूं।',team3:'मैं अकेले काम करना पसंद करता हूं।',crea1:'रोज़मर्रा की समस्याओं के लिए भी मेरे पास नए विचार हैं।',crea2:'मुझे नए तरीके आज़माना पसंद है।',crea3:'मैं परिचित तरीकों पर अधिक भरोसा करता हूं।',prob1:'समस्याओं का सामना करते समय मैं शांत रहता हूं।',prob2:'मैं जटिल समस्याओं को छोटे हिस्सों में बांटता हूं।',prob3:'कठिन परिस्थितियों में मैं जल्दी भ्रमित हो जाता हूं।',adap1:'मैं बदलती परिस्थितियों में जल्दी अनुकूलित होता हूं।',adap2:'अप्रत्याशित स्थितियों में मैं लचीला रहता हूं।',adap3:'अचानक बदलाव मुझे असंतुलित कर देते हैं।',time1:'मैं स्पष्ट प्राथमिकताओं के साथ योजनाएं निष्पादित करता हूं।',time2:'मैं समय सीमा अच्छी तरह प्रबंधित करता हूं।',time3:'मैं आमतौर पर सब कुछ आखिरी पल तक टाल देता हूं।',comm1:'मैं अपने विचार स्पष्ट रूप से व्यक्त करता हूं।',comm2:'मैं एक अच्छा श्रोता हूं।',comm3:'मुझे समूह में अपनी राय व्यक्त करने में कठिनाई होती है।'}
 }
@@ -1950,6 +1951,66 @@ function initAvatar(){
   });
 }
 
+function tryFetchProfileImage(inputEl){
+  var val=(inputEl.textContent||'').trim();
+  if(!val) return;
+  
+  var ghMatch=val.match(/github\.com\/([^\/\s]+)/i);
+  if(ghMatch){
+    var username=ghMatch[1].replace(/^@/,'');
+    var img=new Image();
+    img.crossOrigin='anonymous';
+    img.onload=function(){
+      var av=document.getElementById('avatar');
+      var avImg=document.getElementById('avatarImg');
+      avImg.src=img.src;
+      av.classList.add('has-img');
+      try{localStorage.setItem('avatarImg',img.src)}catch(e){}
+    };
+    img.onerror=function(){};
+    img.src='https://avatars.githubusercontent.com/'+username+'?s=200';
+    return;
+  }
+  
+  var liMatch=val.match(/linkedin\.com\/in\/([^\/\s]+)/i);
+  if(liMatch){
+    var liUser=liMatch[1];
+    var img2=new Image();
+    img2.crossOrigin='anonymous';
+    img2.onload=function(){
+      var av=document.getElementById('avatar');
+      var avImg=document.getElementById('avatarImg');
+      avImg.src=img2.src;
+      av.classList.add('has-img');
+      try{localStorage.setItem('avatarImg',img2.src)}catch(e){}
+    };
+    img2.onerror=function(){};
+    img2.src='https://media.licdn.com/dms/image/'+liUser+'/profile-displayphoto-shrink_200_200/';
+    return;
+  }
+}
+
+function initProfileAutoFetch(){
+  var contactVals=document.querySelectorAll('#contacts .contact-item .val');
+  contactVals.forEach(function(el){
+    el.addEventListener('blur',function(){
+      var lbl=el.previousElementSibling;
+      var lblText=lbl?lbl.textContent:'';
+      if(lblText.indexOf('GitHub')>=0||lblText.indexOf('\u06af\u06cc\u062a\u0647\u0627\u0628')>=0||lblText.indexOf('github')>=0||
+         lblText.indexOf('LinkedIn')>=0||lblText.indexOf('\u0644\u06cc\u0646\u06a9\u062f\u06cc\u0646')>=0||lblText.indexOf('linkedin')>=0){
+        tryFetchProfileImage(el);
+      }
+    });
+    el.addEventListener('input',function(){
+      var v=(el.textContent||'').trim();
+      if(v.indexOf('github.com')>=0||v.indexOf('linkedin.com')>=0){
+        clearTimeout(el._fetchTimer);
+        el._fetchTimer=setTimeout(function(){tryFetchProfileImage(el)},800);
+      }
+    });
+  });
+}
+
 /* ===== Gauge ===== */
 let gaugeDrag=null;
 function initGaugeDrag(){
@@ -2188,6 +2249,7 @@ function applyLang(){
   document.getElementById('tmSaveResult').textContent=t('test.save');
   document.getElementById('tmRetake').textContent=t('test.retake');
   document.getElementById('tmCloseResult').textContent=t('test.close');
+  var tmCancelBtn=document.getElementById('tmCancelQuiz');if(tmCancelBtn)tmCancelBtn.textContent=t('test.cancel');
   document.getElementById('tmNote').textContent=t('test.note');
 
   // Update content from translations (if not editing)
@@ -2464,8 +2526,10 @@ load();
 try{const saved=localStorage.getItem(LANG_KEY);if(saved&&LANG_CFG[saved])currentLang=saved;}catch(e){}
 applyLang();
 initAvatar();
+initProfileAutoFetch();
 initGaugeDrag();
 initRadarDrag();
+document.getElementById('tmCancelQuiz').addEventListener('click',cancelTest);
 initDragAndDrop();
 loadOrder();
 refreshDraggableState();
