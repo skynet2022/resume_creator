@@ -396,6 +396,70 @@ tr:nth-child(even) td{background:#f8fafc}
 .card[draggable=true]:hover,.side-card[draggable=true]:hover{box-shadow:0 4px 20px rgba(79,70,229,.15)}
 .side-card[draggable=true]:hover{border-color:rgba(6,182,212,.4)}
 
+/* Drag ghost outline */
+.card.dragging,.side-card.dragging{
+  outline:2px dashed var(--primary);
+  outline-offset:4px;
+  opacity:.45;
+  background:rgba(79,70,229,.04);
+}
+/* Drop separator line */
+.drop-separator{
+  height:3px;
+  background:linear-gradient(90deg,var(--primary),var(--accent));
+  border-radius:99px;
+  margin:6px 0;
+  box-shadow:0 0 8px rgba(79,70,229,.4);
+  animation:pulseSep .4s ease-in-out infinite alternate;
+}
+@keyframes pulseSep{from{opacity:.6;transform:scaleX(.95)}to{opacity:1;transform:scaleX(1)}}
+/* Column highlight when dragging */
+.main.drag-over,.sidebar.drag-over{
+  outline:2px dashed rgba(79,70,229,.35);
+  outline-offset:-4px;
+  background:rgba(79,70,229,.02);
+}
+.main.drag-over{border-radius:0 0 14px 14px}
+.sidebar.drag-over{border-radius:14px 0 0 14px}
+/* When a side-card moves to main, give it light styling */
+.main .side-card{
+  background:#fff;border:1px solid var(--line);color:var(--ink);
+  box-shadow:0 2px 10px rgba(15,23,42,.05);
+}
+.main .side-card .section-title{color:var(--dark)}
+.main .side-card .g-label,.main .side-card .bar-head span{color:var(--dark)}
+.main .side-card .bar-track{background:#e2e8f0}
+.main .side-card .g-bg{stroke:#e2e8f0}
+.main .side-card .stat{background:rgba(79,70,229,.06);border-color:var(--line)}
+.main .side-card .stat .num{color:var(--primary)}
+.main .side-card .stat .lbl{color:var(--muted)}
+.main .side-card .tag{background:rgba(6,182,212,.1);border-color:rgba(6,182,212,.3);color:#0891b2}
+.main .side-card .cert-item{border-color:var(--line)}
+.main .side-card .flow-step{background:#f8fafc;border-color:var(--line)}
+.main .side-card .flow-arrow{color:var(--muted)}
+/* When a card moves to sidebar, give it dark styling */
+.sidebar .card{
+  background:rgba(255,255,255,.05);border:1px solid var(--dark-line);
+  color:#e2e8f0;box-shadow:none;
+}
+.sidebar .card .section-title{color:#fff}
+.sidebar .card .about-text{color:#cbd5e1}
+.sidebar .card .about-text b{color:#a5b4fc}
+.sidebar .card .t-role{color:#fff}
+.sidebar .card .t-org{color:#a5b4fc}
+.sidebar .card .t-desc{color:#94a3b8}
+.sidebar .card .t-date{background:rgba(6,182,212,.15);border-color:rgba(6,182,212,.3);color:#67e8f9}
+.sidebar .card .t-tag{background:rgba(79,70,229,.2);color:#c4b5fd}
+.sidebar .card .proj-name{color:#fff}
+.sidebar .card .proj-tech{color:#a5b4fc}
+.sidebar .card table{color:#e2e8f0}
+.sidebar .card th{background:rgba(79,70,229,.3)}
+.sidebar .card td{border-color:var(--dark-line)}
+.sidebar .card tr:nth-child(even) td{background:rgba(255,255,255,.03)}
+.sidebar .card .edu-title{color:#fff}
+.sidebar .card .edu-sub{color:#94a3b8}
+.sidebar .card .hint-bar{background:rgba(79,70,229,.1);border-color:rgba(79,70,229,.3);color:#cbd5e1}
+
 @media(max-width:860px){
   .grid{grid-template-columns:1fr}
   .hero{padding:26px 22px}
@@ -2165,9 +2229,10 @@ document.addEventListener('click',function(e){
   }
 });
 
-/* ===== Drag & Drop (only in edit mode) ===== */
+/* ===== Drag & Drop (only in edit mode, cross-column) ===== */
 let dragItem=null;
 let dragType=null;
+let currentSep=null;
 
 function setDraggableState(enable){
   document.querySelectorAll('.card,.side-card').forEach(el=>{
@@ -2179,6 +2244,7 @@ function setDraggableState(enable){
 function initDragAndDrop(){
   document.querySelectorAll('.main,.sidebar').forEach(el=>{
     el.addEventListener('dragover',onDragOver);
+    el.addEventListener('dragleave',onDragLeave);
     el.addEventListener('drop',onDrop);
   });
   document.querySelectorAll('.card,.side-card').forEach(el=>{
@@ -2194,48 +2260,114 @@ function onDragStart(e){
   dragType=this.classList.contains('card')?'card':'side-card';
   e.dataTransfer.setData('text/plain',this.dataset.id||'');
   e.dataTransfer.effectAllowed='move';
-  this.style.opacity='0.5';
-  this.style.transition='opacity 0.2s';
+  this.classList.add('dragging');
 }
 
 function onDragEnd(e){
-  this.style.opacity='1';
+  this.classList.remove('dragging');
+  clearSeparator();
+  clearColumnHighlight();
   dragItem=null;
   dragType=null;
 }
 
 function onDragOver(e){
-  if(!document.body.classList.contains('editing')){e.preventDefault();return;}
+  if(!document.body.classList.contains('editing')||!dragItem){e.preventDefault();return;}
   e.preventDefault();
   e.dataTransfer.dropEffect='move';
+  const container=this;
+  container.classList.add('drag-over');
+  // Find the closest card/side-card to insert before/after
+  const afterElement=getDragAfterElement(container,e.clientY);
+  clearSeparator();
+  if(afterElement==null){
+    // Append at end
+    const last=container.lastElementChild;
+    if(last&&last!==dragItem){
+      const sep=document.createElement('div');
+      sep.className='drop-separator';
+      container.appendChild(sep);
+      currentSep=sep;
+    }else if(last!==dragItem){
+      const sep=document.createElement('div');
+      sep.className='drop-separator';
+      container.appendChild(sep);
+      currentSep=sep;
+    }
+  }else{
+    if(afterElement!==dragItem){
+      const sep=document.createElement('div');
+      sep.className='drop-separator';
+      container.insertBefore(sep,afterElement);
+      currentSep=sep;
+    }
+  }
+}
+
+function onDragLeave(e){
+  // Only clear if leaving the container itself (not entering a child)
+  if(!this.contains(e.relatedTarget)||e.relatedTarget===null){
+    this.classList.remove('drag-over');
+    clearSeparator();
+  }
+}
+
+function getDragAfterElement(container,y){
+  const els=container.querySelectorAll('.card,.side-card:not(.dragging)');
+  let closest={offset:-Infinity,element:null};
+  els.forEach(el=>{
+    const box=el.getBoundingClientRect();
+    const offset=y-box.top-box.height/2;
+    if(offset<0&&offset>closest.offset){
+      closest={offset:offset,element:el};
+    }
+  });
+  return closest.element;
+}
+
+function clearSeparator(){
+  if(currentSep&&currentSep.parentNode){currentSep.parentNode.removeChild(currentSep);}
+  currentSep=null;
+}
+
+function clearColumnHighlight(){
+  document.querySelectorAll('.main,.sidebar').forEach(el=>el.classList.remove('drag-over'));
 }
 
 function onDrop(e){
-  if(!document.body.classList.contains('editing')){e.preventDefault();return;}
+  if(!document.body.classList.contains('editing')||!dragItem){e.preventDefault();return;}
   e.preventDefault();
   const container=this;
   const draggedId=e.dataTransfer.getData('text/plain');
   const draggedElement=draggedId?document.querySelector('[data-id="'+draggedId+'"]'):(dragItem||null);
   if(!draggedElement||draggedElement===container)return;
-  const isCardContainer=container.classList.contains('main');
-  const isSideContainer=container.classList.contains('sidebar');
-  if((isCardContainer&&dragType!=='card')||(isSideContainer&&dragType!=='side-card'))return;
-  const dropTarget=e.target.closest('.card,.side-card');
-  if(dropTarget&&dropTarget!==draggedElement){
-    const rect=dropTarget.getBoundingClientRect();
-    const midY=rect.top+rect.height/2;
-    if(e.clientY<midY){container.insertBefore(draggedElement,dropTarget);}
-    else{container.insertBefore(draggedElement,dropTarget.nextSibling);}
-  }else{container.appendChild(draggedElement);}
+  // Remove separator if exists
+  clearSeparator();
+  // Find insertion point
+  const afterElement=getDragAfterElement(container,e.clientY);
+  if(afterElement==null){
+    container.appendChild(draggedElement);
+  }else{
+    container.insertBefore(draggedElement,afterElement);
+  }
+  // Adapt class: if card moved to sidebar or vice-versa
+  if(container.classList.contains('sidebar')&&draggedElement.classList.contains('card')){
+    draggedElement.classList.remove('card');
+    draggedElement.classList.add('side-card');
+  }else if(container.classList.contains('main')&&draggedElement.classList.contains('side-card')){
+    draggedElement.classList.remove('side-card');
+    draggedElement.classList.add('card');
+  }
+  clearColumnHighlight();
   saveOrder();
 }
 
 function saveOrder(){
-  const mainCards=document.querySelectorAll('.main .card');
-  const sidebarCards=document.querySelectorAll('.sidebar .side-card');
+  const mainCards=document.querySelectorAll('.main > .card, .main > .side-card');
+  const sidebarCards=document.querySelectorAll('.sidebar > .card, .sidebar > .side-card');
   const order={
-    main:Array.from(mainCards).map(el=>el.dataset.id),
-    sidebar:Array.from(sidebarCards).map(el=>el.dataset.id)
+    main:Array.from(mainCards).map(el=>({id:el.dataset.id,cls:el.classList.contains('card')?'card':'side-card'})),
+    sidebar:Array.from(sidebarCards).map(el=>({id:el.dataset.id,cls:el.classList.contains('card')?'card':'side-card'}))
   };
   try{localStorage.setItem('resume_order',JSON.stringify(order))}catch(e){}
 }
@@ -2247,24 +2379,25 @@ function loadOrder(){
     const order=JSON.parse(saved);
     const mainContainer=document.querySelector('.main');
     const sidebarContainer=document.querySelector('.sidebar');
-    if(order.main&&order.main.length&&mainContainer){
-      const mainCards=Array.from(mainContainer.querySelectorAll('.card'));
-      mainCards.sort((a,b)=>{
-        const idxA=order.main.indexOf(a.dataset.id);
-        const idxB=order.main.indexOf(b.dataset.id);
-        return (idxA===-1?order.main.length:idxA)-(idxB===-1?order.main.length:idxB);
+    if(!mainContainer||!sidebarContainer)return;
+    function applyOrder(container,list){
+      if(!list||!list.length)return;
+      const existing={};
+      container.querySelectorAll('.card,.side-card').forEach(el=>{
+        if(el.dataset.id)existing[el.dataset.id]=el;
       });
-      mainCards.forEach(card=>mainContainer.appendChild(card));
-    }
-    if(order.sidebar&&order.sidebar.length&&sidebarContainer){
-      const sidebarCards=Array.from(sidebarContainer.querySelectorAll('.side-card'));
-      sidebarCards.sort((a,b)=>{
-        const idxA=order.sidebar.indexOf(a.dataset.id);
-        const idxB=order.sidebar.indexOf(b.dataset.id);
-        return (idxA===-1?order.sidebar.length:idxA)-(idxB===-1?order.sidebar.length:idxB);
+      list.forEach(item=>{
+        const el=existing[item.id];
+        if(el){
+          if(item.cls==='card'&&!el.classList.contains('card')){el.classList.remove('side-card');el.classList.add('card');}
+          if(item.cls==='side-card'&&!el.classList.contains('side-card')){el.classList.remove('card');el.classList.add('side-card');}
+          container.appendChild(el);
+          delete existing[item.id];
+        }
       });
-      sidebarCards.forEach(card=>sidebarContainer.appendChild(card));
     }
+    applyOrder(mainContainer,order.main);
+    applyOrder(sidebarContainer,order.sidebar);
   }catch(e){}
 }
 
