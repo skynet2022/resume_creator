@@ -11,7 +11,7 @@
 
 ---
 
-## 🌍 زبان‌های پشتیبانی‌شده
+## 🌍 زبان‌های پشتیبانی‌شده / Supported Languages
 
 | پرچم | زبان | توضیحات |
 |:----:|:-----|:---------|
@@ -23,6 +23,7 @@
 | <img src="https://flagcdn.com/es.svg" width="28" height="18" alt="Spain"> | Español | زبان اسپانیایی |
 | <img src="https://flagcdn.com/de.svg" width="28" height="18" alt="Germany"> | Deutsch | زبان آلمانی |
 | <img src="https://flagcdn.com/in.svg" width="28" height="18" alt="India"> | हिन्दी | زبان هندی |
+
 ---
 
 <!-- ======================== فارسی ======================== -->
@@ -101,7 +102,7 @@ This project is released under the **MIT** license.
 
 <!-- ======================== العربية ======================== -->
 <details>
-<summary><b>🇸🇦 العربية — منشئ السيرة الذاتية التفاعلي متعدد اللغات</b></summary>
+<summary><b>🇾🇪 العربية — منشئ السيرة الذاتية التفاعلي متعدد اللغات</b></summary>
 <br>
 
 ### 📖 مقدمة
@@ -325,7 +326,7 @@ HTML5 · CSS3 · शुद्ध JavaScript · Vazirmatn फ़ॉन्ट · L
 
 <div dir="rtl">
 
-اگر ایده‌ی بهبود، رفع باگ یا افزودن زبان جدید دارید، خوشحال می‌شویم که مشارکت کنید.  
+اگر ایده‌ی بهبود، رفع باگ یا افزودن زبان جدید دارید، خوشحال می‌شم که مشارکت کنید.  
 **راه‌های مشارکت:**
 - گزارش Issues در گیت‌هاب
 - ارسال Pull Request
@@ -341,10 +342,22 @@ If you have ideas for improvements, bug fixes, or new languages, we'd love your 
 
 ---
 
+## ⭐ حمایت از پروژه / Support the Project
+
+<div dir="rtl">
+
+**اگر از این پروژه خوشتان آمد، به آن ستاره (Star) دهید!**  
+ستاره‌هاتون به من انرژی مثبت ‌میده تا پروژه رو بهبود بدم و قابلیت‌های جدید اضافه کنم. 🙏
+
+</div>
+
+**If you like this project, please give it a Star!** ⭐  
+Your stars give me positive energy to improve the project and add new features. 🙏
+
+---
+
 <div align="center">
 
 **ساخته شده با ❤️ در ایران — Made with ❤️ in Iran**
-
-⭐ **اگر از این پروژه خوشتان آمد، به آن ستاره (Star) دهید!** ⭐
 
 </div>
